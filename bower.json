@@ -1,0 +1,27 @@
+{
+  "name": "nepali-date-picker",
+  "version": "1.0.0",
+  "authors": [
+    "Sanish Maharjan <sanishmaharjan@lftechnology.com>"
+  ],
+  "main": [
+    "jquery.nepaliDatePicker.js"
+  ],
+  "description": "Nepali date picker",
+  "keywords": [
+    "nepaliDatePicker",
+    "date picker"
+  ],
+  "ignore": [
+    "bower_components"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">= 1.11.1"
+  },
+  "homepage": "https://github.com/leapfrogtechnology/Nepali-Date-Picker",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:leapfrogtechnology/Nepali-Date-Picker.git"
+  }
+}

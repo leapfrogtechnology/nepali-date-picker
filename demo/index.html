@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery.nepaliDatePicker.js"></script>
+    <link rel="stylesheet" href="../nepaliDatePicker.css">
+</head>
+<body>
+<input type="text" value="" name="date" class="bod-picker">
+
+<input type="text" value="" name="date" class="bod-picker">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".bod-picker").nepaliDatePicker({
+            dateFormat: "%D, %M %d, %y",
+            closeOnDateSelect: true,
+            "yearStart": 2070,
+            "yearEnd": 2075
+        });
+
+        $(".bod-picker").on("monthChange", function (event) {
+            console.log(event);
+        });
+
+        $(".bod-picker").on("yearChange", function (event) {
+            console.log(event);
+        });
+        $(".bod-picker").on("select", function (event) {
+            console.log(event);
+        });
+        $(".bod-picker").on("dateChange", function (event) {
+            console.log(event);
+        });
+
+    });
+</script>
+</body>
+</html>
