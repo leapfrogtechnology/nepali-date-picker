@@ -60,6 +60,14 @@ var calenderFunctions = {};
                 return calenderData.nepaliNumbers[suffixNum];
             }
         },
+        getNumberByNepaliNumber: function (nepaliNumber) {
+            var number = 0;
+            for (var i = 0; i < nepaliNumber.length; i++) {
+                var numIndex = calenderData.nepaliNumbers.indexOf(nepaliNumber.charAt(i));
+                number = number * 10 + numIndex;
+            }
+            return number;
+        },
         getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern) {
             if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
                 return null;
@@ -203,6 +211,44 @@ var calenderFunctions = {};
             formattedDate = formattedDate.replace(/%M/g, calenderData.bsMonths[bsMonth]);
             formattedDate = formattedDate.replace(/%D/g, calenderData.bsDays[day]);
             return formattedDate;
+        },
+        parseFormattedBsDate: function (dateFormat, dateFormattedText) {
+            var diffTextNum = 0;
+            var extractedFormattedBsDate = {
+                "bsYear": null,
+                "bsMonth": null,
+                "bsDate": null,
+                "bsDay": null
+            };
+
+            for (var i = 0; i < dateFormat.length; i++) {
+                if (dateFormat.charAt(i) == '%') {
+                    var valueOf = dateFormat.substring(i, i + 2);
+                    var endChar = dateFormat.charAt(i + 2);
+                    var tempText = dateFormattedText.substring(i + diffTextNum);
+                    var endIndex = (endChar != '') ? tempText.indexOf(endChar) : tempText.length;
+                    var value = tempText.substring(0, endIndex);
+
+                    if (valueOf == "%y") {
+                        extractedFormattedBsDate.bsYear = calenderFunctions.getNumberByNepaliNumber(value);
+                        diffTextNum += value.length - 2;
+                    } else if (valueOf == "%d") {
+                        extractedFormattedBsDate.bsDate = calenderFunctions.getNumberByNepaliNumber(value);
+                        diffTextNum += value.length - 2;
+                    } else if (valueOf == "%D") {
+                        extractedFormattedBsDate.bsDay = calenderData.bsDays.indexOf(value);
+                        diffTextNum += value.length - 2;
+                    } else if (valueOf == "%m") {
+                        extractedFormattedBsDate.bsMonth = calenderFunctions.getNumberByNepaliNumber(value);
+                        diffTextNum += value.length - 2;
+                    } else if (valueOf == "%M") {
+                        extractedFormattedBsDate.bsMonth = calenderData.bsMonths.indexOf(value);
+                        diffTextNum += value.length - 2;
+                    }
+                }
+            }
+
+            return extractedFormattedBsDate;
         }
     });
 
@@ -221,7 +267,11 @@ var calenderFunctions = {};
                 $element.prop("readonly", true);
                 var $nepaliDatePicker = $('<div class="nepali-date-picker">');
                 $('body').append($nepaliDatePicker);
-                datePickerPlugin.renderCurrentMonthCalender($nepaliDatePicker);
+                if ($element.val() != '') {
+                    datePickerPlugin.renderFormattedSpecificDateCalender($nepaliDatePicker, datePickerPlugin.options.dateFormat, $element.val());
+                } else {
+                    datePickerPlugin.renderCurrentMonthCalender($nepaliDatePicker);
+                }
                 datePickerPlugin.addEventHandler($element, $nepaliDatePicker);
             },
             addCommonEventHandler: function () {
@@ -579,6 +629,11 @@ var calenderFunctions = {};
                     return null;
                 }
                 datePickerPlugin.setCalenderDate($nepaliDatePicker, nextYear, nextMonth, nextDate);
+                datePickerPlugin.renderMonthCalender($nepaliDatePicker);
+            },
+            renderFormattedSpecificDateCalender: function ($nepaliDatePicker, dateFormat, dateFormattedText) {
+                var datePickerDate = calenderFunctions.parseFormattedBsDate(dateFormat, dateFormattedText);
+                datePickerPlugin.setCalenderDate($nepaliDatePicker, datePickerDate.bsYear, datePickerDate.bsMonth, datePickerDate.bsDate);
                 datePickerPlugin.renderMonthCalender($nepaliDatePicker);
             }
         };
