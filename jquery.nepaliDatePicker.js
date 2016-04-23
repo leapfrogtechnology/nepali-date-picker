@@ -258,8 +258,8 @@ var calenderFunctions = {};
                 dateFormat: "%D, %M %d, %y",
                 closeOnDateSelect: true,
                 defaultDate: "",
-                minDate: "%D, %M %d, %y",
-                maxDate: "%D, %M %d, %y",
+                minDate: null,
+                maxDate: null,
                 yearStart: calenderData.minBsYear,
                 yearEnd: calenderData.maxBsYear
             }, options),
@@ -361,6 +361,10 @@ var calenderFunctions = {};
                 });
 
                 $nepaliDatePicker.on("click", ".current-month-date", function () {
+                    if($(this).hasClass("disable")){
+                        return;
+                    }
+
                     var datePickerData = $nepaliDatePicker.data();
                     var bsYear = datePickerData.bsYear;
                     var bsMonth = datePickerData.bsMonth;
@@ -574,6 +578,15 @@ var calenderFunctions = {};
                 var preMonth = (datePickerData.bsMonth - 1 != -1) ? datePickerData.bsMonth - 1 : 11;
                 var preYear = preMonth == 11 ? datePickerData.bsYear - 1 : datePickerData.bsYear;
                 var preMonthDays = calenderFunctions.getBsMonthDays(preYear, preMonth);
+                var minBsDate = null;
+                var maxBsDate = null;
+
+                if (datePickerPlugin.options.minDate != null) {
+                    minBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.minDate);
+                }
+                if(datePickerPlugin.options.maxDate != null){
+                    maxBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.maxDate);
+                }
                 var calenderBody = $("<tbody>");
                 for (var i = 0; i < weekCoverInMonth; i++) {
                     var tableRow = $("<tr>");
@@ -589,16 +602,47 @@ var calenderFunctions = {};
                         }
 
                         if (isCurrentMonthDate) {
-                            tableRow.append('<td class="current-month-date ' + (calenderDate == datePickerData.bsDate ? 'active' : '') + '" data-date="' + calenderDate + '" data-weekDay="' + (k - 1) + '">' + calenderFunctions.getNepaliNumber(calenderDate) + '</td>');
+                            var $td = $('<td class="current-month-date" data-date="' + calenderDate + '" data-weekDay="' + (k - 1) + '">' +
+                                calenderFunctions.getNepaliNumber(calenderDate) + '</td>');
+                            if (calenderDate == datePickerData.bsDate) {
+                                $td.addClass("active");
+                            }
+                            datePickerPlugin.disableIfOutOfRange($td, datePickerData, minBsDate, maxBsDate, calenderDate);
+                            tableRow.append($td);
                         } else {
                             tableRow.append('<td class="other-month-date">' + calenderFunctions.getNepaliNumber(calenderDate) + '</td>');
                         }
                     }
+
+
                     calenderBody.append(tableRow);
                 }
 
 
                 return calenderBody;
+            },
+            disableIfOutOfRange: function ($td, datePickerData, minBsDate, maxBsDate, calenderDate) {
+                if (minBsDate != null) {
+                    if (datePickerData.bsYear < minBsDate.bsYear) {
+                        $td.addClass("disable");
+                    } else if (datePickerData.bsYear == minBsDate.bsYear && datePickerData.bsMonth < minBsDate.bsMonth) {
+                        $td.addClass("disable");
+                    } else if (datePickerData.bsYear == minBsDate.bsYear && datePickerData.bsMonth == minBsDate.bsMonth && calenderDate < minBsDate.bsDate) {
+                        $td.addClass("disable");
+                    }
+                }
+
+                if(maxBsDate != null){
+                    if (datePickerData.bsYear > maxBsDate.bsYear) {
+                        $td.addClass("disable");
+                    } else if (datePickerData.bsYear == maxBsDate.bsYear && datePickerData.bsMonth > maxBsDate.bsMonth) {
+                        $td.addClass("disable");
+                    } else if (datePickerData.bsYear == maxBsDate.bsYear && datePickerData.bsMonth == maxBsDate.bsMonth && calenderDate > maxBsDate.bsDate) {
+                        $td.addClass("disable");
+                    }
+                }
+
+                return $td;
             },
             renderCurrentMonthCalender: function ($nepaliDatePicker) {
                 var currentDate = new Date();

@@ -67,9 +67,15 @@
     font-weight: bold;
 }
 
-.nepali-date-picker table td.other-month-date {
+.nepali-date-picker table td.other-month-date, .nepali-date-picker table td.current-month-date.disable {
     color: #cccccc;
     cursor: default;
+}
+
+.nepali-date-picker table tbody td.current-month-date.disable:hover{
+    background-color: inherit;
+    color: #cccccc;
+    font-weight: normal;
 }
 
 .nepali-date-picker .icon {
