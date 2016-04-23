@@ -1,6 +1,6 @@
 /*
  * @fileOverview NepaliDatePicker - jQuery Plugin
- * @version 1.0.0
+ * @version 1.0.2
  *
  * @author Sanish Maharjan https://github.com/sanishmaharjan
  * @see https://github.com/sanishmaharjan/
