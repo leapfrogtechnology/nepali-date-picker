@@ -52,9 +52,12 @@ var calenderFunctions = {};
 
     $.extend(calenderFunctions, {
         getNepaliNumber: function (number) {
+            if(typeof number != "number" || number < 0){
+                throw new Error("Number should be positive integer");
+            }
             var prefixNum = Math.floor(number / 10);
             var suffixNum = number % 10;
-            if (prefixNum != 0) {
+            if (prefixNum !== 0) {
                 return calenderFunctions.getNepaliNumber(prefixNum) + calenderData.nepaliNumbers[suffixNum];
             } else {
                 return calenderData.nepaliNumbers[suffixNum];
@@ -121,7 +124,7 @@ var calenderFunctions = {};
             var yearCount = 0;
             var monthDaysFromMinBsYear = 0;
             var preBsMonth = (bsMonth - 1 != -1) ? bsMonth - 1 : 11;
-            if (diffYears == 0 && preBsMonth == 11) {
+            if (diffYears === 0 && preBsMonth === 11) {
                 return 0;
             }
 
@@ -131,7 +134,7 @@ var calenderFunctions = {};
 
             var bsMonthData = calenderData.extractedBsMonthData[preBsMonth];
             for (var i = 0; i < bsMonthData.length; i++) {
-                if (bsMonthData[i] == 0) {
+                if (bsMonthData[i] === 0) {
                     continue;
                 }
 
@@ -153,7 +156,7 @@ var calenderFunctions = {};
             var diffYears = bsYear - calenderData.minBsYear;
             var bsMonthData = calenderData.extractedBsMonthData[bsMonth];
             for (var i = 0; i < bsMonthData.length; i++) {
-                if (bsMonthData[i] == 0) {
+                if (bsMonthData[i] === 0) {
                     continue;
                 }
 
@@ -182,7 +185,7 @@ var calenderFunctions = {};
 
             var bsMonthFirstAdDate = calenderFunctions.getAdDateByBsDate(bsYear, bsMonth, 1);
             if (adDate >= 1 && adDate < bsMonthFirstAdDate.getDate()) {
-                bsMonth = (bsMonth != 0) ? bsMonth - 1 : 11;
+                bsMonth = (bsMonth !== 0) ? bsMonth - 1 : 11;
                 var bsMonthDays = calenderFunctions.getBsMonthDays(bsYear, bsMonth);
                 bsDate = bsMonthDays - (bsMonthFirstAdDate.getDate() - adDate) + 1;
             } else {
@@ -193,7 +196,7 @@ var calenderFunctions = {};
                 bsYear: bsYear,
                 bsMonth: bsMonth,
                 bsDate: bsDate
-            }
+            };
         },
         getBsYearByAdDate: function (adYear, adMonth, adDate) {
             var bsDate = calenderFunctions.getBsDateByAdDate(adYear, adMonth, adDate);
@@ -226,7 +229,7 @@ var calenderFunctions = {};
                     var valueOf = dateFormat.substring(i, i + 2);
                     var endChar = dateFormat.charAt(i + 2);
                     var tempText = dateFormattedText.substring(i + diffTextNum);
-                    var endIndex = (endChar != '') ? tempText.indexOf(endChar) : tempText.length;
+                    var endIndex = (endChar !== '') ? tempText.indexOf(endChar) : tempText.length;
                     var value = tempText.substring(0, endIndex);
 
                     if (valueOf == "%y") {
@@ -267,7 +270,7 @@ var calenderFunctions = {};
                 $element.prop("readonly", true);
                 var $nepaliDatePicker = $('<div class="nepali-date-picker">');
                 $('body').append($nepaliDatePicker);
-                if ($element.val() != '') {
+                if ($element.val() !== '') {
                     datePickerPlugin.renderFormattedSpecificDateCalender($nepaliDatePicker, datePickerPlugin.options.dateFormat, $element.val());
                 } else {
                     datePickerPlugin.renderCurrentMonthCalender($nepaliDatePicker);
@@ -581,10 +584,10 @@ var calenderFunctions = {};
                 var minBsDate = null;
                 var maxBsDate = null;
 
-                if (datePickerPlugin.options.minDate != null) {
+                if (datePickerPlugin.options.minDate !== null) {
                     minBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.minDate);
                 }
-                if(datePickerPlugin.options.maxDate != null){
+                if(datePickerPlugin.options.maxDate !== null){
                     maxBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.maxDate);
                 }
                 var calenderBody = $("<tbody>");
@@ -622,7 +625,7 @@ var calenderFunctions = {};
                 return calenderBody;
             },
             disableIfOutOfRange: function ($td, datePickerData, minBsDate, maxBsDate, calenderDate) {
-                if (minBsDate != null) {
+                if (minBsDate !== null) {
                     if (datePickerData.bsYear < minBsDate.bsYear) {
                         $td.addClass("disable");
                     } else if (datePickerData.bsYear == minBsDate.bsYear && datePickerData.bsMonth < minBsDate.bsMonth) {
@@ -632,7 +635,7 @@ var calenderFunctions = {};
                     }
                 }
 
-                if(maxBsDate != null){
+                if(maxBsDate !== null){
                     if (datePickerData.bsYear > maxBsDate.bsYear) {
                         $td.addClass("disable");
                     } else if (datePickerData.bsYear == maxBsDate.bsYear && datePickerData.bsMonth > maxBsDate.bsMonth) {
@@ -667,7 +670,7 @@ var calenderFunctions = {};
             renderNextMonthCalender: function ($nepaliDatePicker) {
                 var datePickerData = $nepaliDatePicker.data();
                 var nextMonth = (datePickerData.bsMonth + 1 <= 11) ? datePickerData.bsMonth + 1 : 0;
-                var nextYear = (nextMonth != 0) ? datePickerData.bsYear : datePickerData.bsYear + 1;
+                var nextYear = (nextMonth !== 0) ? datePickerData.bsYear : datePickerData.bsYear + 1;
                 var nextDate = datePickerData.bsDate;
                 if (nextYear < datePickerPlugin.options.yearStart || nextYear > datePickerPlugin.options.yearEnd) {
                     return null;
