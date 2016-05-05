@@ -51,10 +51,18 @@ var calenderFunctions = {};
     };
 
     $.extend(calenderFunctions, {
+        /**
+         * Return equivalent number in nepaliNumber
+         * @param number {Integer} number
+         * @returns {String} nepaliNumber
+         */
         getNepaliNumber: function (number) {
-            if(typeof number != "number" || number < 0){
+            if(typeof number === "undefined"){
+                throw new Error("Parameter number is required");
+            }else if(typeof number != "number" || number < 0){
                 throw new Error("Number should be positive integer");
             }
+
             var prefixNum = Math.floor(number / 10);
             var suffixNum = number % 10;
             if (prefixNum !== 0) {
@@ -63,12 +71,27 @@ var calenderFunctions = {};
                 return calenderData.nepaliNumbers[suffixNum];
             }
         },
+        /**
+         * Return equivalent number from nepaliNumber
+         * @param nepaliNumber {String} nepaliNumber
+         * @returns {Integer} number
+         */
         getNumberByNepaliNumber: function (nepaliNumber) {
+            if(typeof nepaliNumber === "undefined"){
+                throw new Error("Parameter nepaliNumber is required");
+            }else if(typeof nepaliNumber !== "string"){
+                throw new Error("Parameter nepaliNumber should be in string");
+            }
+
             var number = 0;
             for (var i = 0; i < nepaliNumber.length; i++) {
                 var numIndex = calenderData.nepaliNumbers.indexOf(nepaliNumber.charAt(i));
+                if(numIndex === -1){
+                    throw new Error("Invalid nepali number");
+                }
                 number = number * 10 + numIndex;
             }
+
             return number;
         },
         getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern) {

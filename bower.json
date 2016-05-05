@@ -23,5 +23,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:leapfrogtechnology/Nepali-Date-Picker.git"
+  },
+  "devDependencies": {
+    "jasmine-expect": "~2.0.2"
   }
 }

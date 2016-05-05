@@ -36,6 +36,7 @@
     "url": "git@github.com:leapfrogtechnology/Nepali-Date-Picker.git"
   },
   "devDependencies": {
-    "grunt-contrib-jasmine": "^1.0.3"
+    "grunt-contrib-jasmine": "^1.0.3",
+    "jasmine-expect": "^2.0.2"
   }
 }

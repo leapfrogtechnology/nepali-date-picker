@@ -3,12 +3,12 @@
 ### Install:
 For npm installation : 
 ``` bash
-npm install nepali-date-picker --save
+$ npm install nepali-date-picker --save
 ```
 
-For boswer installation : 
+For bower installation : 
 ``` bash
-bower install nepali-date-picker --save`
+$ bower install nepali-date-picker --save`
 ```
 
 ### How do I use it?
@@ -33,3 +33,26 @@ $(".date-picker").nepaliDatePicker({
   });
 ```
 
+## For deplopers only
+
+### Installing dependancies
+``` bash
+$ bower install
+
+$ npm install
+
+#if you already install grunt dependencies
+$ grunt update
+```
+ 
+ ### Minifying javascript & css
+ ``` bash
+ $ grunt compress
+ ```
+ 
+ ### Testing calender Functions
+  ``` bash
+  $ grunt test
+  ```
+ 
+ 
