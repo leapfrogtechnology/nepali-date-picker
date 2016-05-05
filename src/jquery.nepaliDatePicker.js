@@ -57,9 +57,9 @@ var calenderFunctions = {};
          * @returns {String} nepaliNumber
          */
         getNepaliNumber: function (number) {
-            if(typeof number === "undefined"){
+            if (typeof number === "undefined") {
                 throw new Error("Parameter number is required");
-            }else if(typeof number != "number" || number < 0){
+            } else if (typeof number != "number" || number < 0) {
                 throw new Error("Number should be positive integer");
             }
 
@@ -77,16 +77,16 @@ var calenderFunctions = {};
          * @returns {Integer} number
          */
         getNumberByNepaliNumber: function (nepaliNumber) {
-            if(typeof nepaliNumber === "undefined"){
+            if (typeof nepaliNumber === "undefined") {
                 throw new Error("Parameter nepaliNumber is required");
-            }else if(typeof nepaliNumber !== "string"){
+            } else if (typeof nepaliNumber !== "string") {
                 throw new Error("Parameter nepaliNumber should be in string");
             }
 
             var number = 0;
             for (var i = 0; i < nepaliNumber.length; i++) {
                 var numIndex = calenderData.nepaliNumbers.indexOf(nepaliNumber.charAt(i));
-                if(numIndex === -1){
+                if (numIndex === -1) {
                     throw new Error("Invalid nepali number");
                 }
                 number = number * 10 + numIndex;
@@ -95,6 +95,12 @@ var calenderFunctions = {};
             return number;
         },
         getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern) {
+            if (typeof bsYear === "undefined" || typeof bsYear !== "number" || bsYear === null) {
+                throw new Error("Invalid parameter bsYear value");
+            } else if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
+                throw new Error("Parameter bsYear value should be in range of " + calenderData.minBsYear + " to " + calenderData.maxBsYear);
+            }
+
             if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
                 return null;
             }
@@ -387,7 +393,7 @@ var calenderFunctions = {};
                 });
 
                 $nepaliDatePicker.on("click", ".current-month-date", function () {
-                    if($(this).hasClass("disable")){
+                    if ($(this).hasClass("disable")) {
                         return;
                     }
 
@@ -610,7 +616,7 @@ var calenderFunctions = {};
                 if (datePickerPlugin.options.minDate !== null) {
                     minBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.minDate);
                 }
-                if(datePickerPlugin.options.maxDate !== null){
+                if (datePickerPlugin.options.maxDate !== null) {
                     maxBsDate = calenderFunctions.parseFormattedBsDate(datePickerPlugin.options.dateFormat, datePickerPlugin.options.maxDate);
                 }
                 var calenderBody = $("<tbody>");
@@ -658,7 +664,7 @@ var calenderFunctions = {};
                     }
                 }
 
-                if(maxBsDate !== null){
+                if (maxBsDate !== null) {
                     if (datePickerData.bsYear > maxBsDate.bsYear) {
                         $td.addClass("disable");
                     } else if (datePickerData.bsYear == maxBsDate.bsYear && datePickerData.bsMonth > maxBsDate.bsMonth) {

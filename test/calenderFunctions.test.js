@@ -44,3 +44,27 @@ describe("Test: calenderFunctions.getNumberByNepaliNumber(nepaliNumber)", functi
         }).not.toThrow();
     });
 });
+
+describe("Test: getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern)", function () {
+    it("Should return not empty object", function () {
+        expect(calenderFunctions.getBsMonthInfoByBsDate(2072, 2, 10, "y%, %M %D")).toBeNonEmptyObject();
+    });
+
+    it("Should have key members [bsYear, bsMonth...]", function(){
+        var bsMonthInfoByBsDate = calenderFunctions.getBsMonthInfoByBsDate(2072, 2, 10, "y%, %M %D");
+        var availableKeys = Object.keys(bsMonthInfoByBsDate).sort();
+        var expectedKeys = [
+            'bsYear',
+            'bsMonth',
+            'bsDate',
+            'weekDay',
+            'formattedDate',
+            'adDate',
+            'bsMonthFirstAdDate',
+            'bsMonthDays'
+        ].sort();
+
+        expect(bsMonthInfoByBsDate).toHaveMember("bsYear");
+        expect(availableKeys).toEqual(expectedKeys);
+    });
+});
