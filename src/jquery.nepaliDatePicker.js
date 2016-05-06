@@ -50,6 +50,37 @@ var calenderFunctions = {};
         }
     };
 
+    var validationFunctions = {
+        validateRequiredParameters: function (requiredParameters) {
+            $.each(requiredParameters, function (key, value) {
+                if (typeof value === "undefined" || value === null) {
+                    throw new ReferenceError("Missing required parameters: " + Object.keys(requiredParameters).join(", "));
+                }
+            });
+        },
+        validateBsYear: function (bsYear) {
+            if (typeof bsYear !== "number" || bsYear === null) {
+                throw new TypeError("Invalid parameter bsYear value");
+            } else if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
+                throw new RangeError("Parameter bsYear value should be in range of " + calenderData.minBsYear + " to " + calenderData.maxBsYear);
+            }
+        },
+        validateBsMonth : function(bsMonth){
+            if (typeof bsMonth !== "number" || bsMonth === null) {
+                throw new TypeError("Invalid parameter bsMonth value");
+            } else if (bsMonth < 0 || bsMonth > 11) {
+                throw new RangeError("Parameter bsMonth value should be in range of 0 to 11");
+            }
+        },
+        validateBsDate : function(bsDate){
+            if (typeof bsDate !== "number" || bsDate === null) {
+                throw new TypeError("Invalid parameter bsDate value");
+            } else if (bsDate < 1 || bsDate > 32) {
+                throw new RangeError("Parameter bsDate value should be in range of 1 to 32");
+            }
+        }
+    };
+
     $.extend(calenderFunctions, {
         /**
          * Return equivalent number in nepaliNumber
@@ -95,15 +126,10 @@ var calenderFunctions = {};
             return number;
         },
         getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern) {
-            if (typeof bsYear === "undefined" || typeof bsYear !== "number" || bsYear === null) {
-                throw new Error("Invalid parameter bsYear value");
-            } else if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
-                throw new Error("Parameter bsYear value should be in range of " + calenderData.minBsYear + " to " + calenderData.maxBsYear);
-            }
-
-            if (bsYear < calenderData.minBsYear || bsYear > calenderData.maxBsYear) {
-                return null;
-            }
+            validationFunctions.validateRequiredParameters({"bsYear": bsYear, "bsMonth": bsMonth, "bsDate": bsDate});
+            validationFunctions.validateBsYear(bsYear);
+            validationFunctions.validateBsMonth(bsMonth);
+            validationFunctions.validateBsDate(bsDate);
 
             var daysNumFromMinBsYear = calenderFunctions.getTotalDaysNumFromMinBsYear(bsYear, bsMonth, bsDate);
             var adDate = new Date(calenderData.minAdDateEqBsDate.ad.year, calenderData.minAdDateEqBsDate.ad.month, calenderData.minAdDateEqBsDate.ad.date - 1);
