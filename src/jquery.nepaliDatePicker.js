@@ -130,6 +130,11 @@ var calenderFunctions = {};
             validationFunctions.validateBsYear(bsYear);
             validationFunctions.validateBsMonth(bsMonth);
             validationFunctions.validateBsDate(bsDate);
+            if(dateFormatPattern === null){
+                dateFormatPattern = "%D, %M %d, %y";
+            }else if(typeof dateFormatPattern != "string"){
+                throw new TypeError("Invalid parameter dateFormatPattern value");
+            }
 
             var daysNumFromMinBsYear = calenderFunctions.getTotalDaysNumFromMinBsYear(bsYear, bsMonth, bsDate);
             var adDate = new Date(calenderData.minAdDateEqBsDate.ad.year, calenderData.minAdDateEqBsDate.ad.month, calenderData.minAdDateEqBsDate.ad.date - 1);

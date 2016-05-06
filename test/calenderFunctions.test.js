@@ -74,6 +74,12 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
         }).toThrowError(TypeError, "Invalid parameter bsDate value");
     });
 
+    it("Should throw TypeError if dateFormatPattern not string", function () {
+        expect(function () {
+            calenderFunctions.getBsMonthInfoByBsDate(2017, 2, 10, 2000);
+        }).toThrowError(TypeError, "Invalid parameter dateFormatPattern value");
+    });
+
     it("Should throw RangeError if bsYear value out the supported range", function () {
         expect(function () {
             calenderFunctions.getBsMonthInfoByBsDate(9000, 2, 10, "y%, %M %D");
