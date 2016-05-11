@@ -78,13 +78,22 @@ var calenderFunctions = {};
             } else if (bsDate < 1 || bsDate > 32) {
                 throw new RangeError("Parameter bsDate value should be in range of 1 to 32");
             }
+        },
+        validatePositiveNumber: function (numberParameters) {
+            $.each(numberParameters, function (key, value) {
+                if (typeof value !== "number" || value === null || value < 0) {
+                    throw new ReferenceError("Invalid parameters: " + Object.keys(numberParameters).join(", "));
+                } else if (key === "yearDiff" && value > (calenderData.maxBsYear - calenderData.minBsYear + 1)) {
+                    throw new RangeError("Parameter yearDiff value should be in range of 0 to " + (calenderData.maxBsYear - calenderData.minBsYear + 1));
+                }
+            });
         }
     };
 
     $.extend(calenderFunctions, {
         /**
          * Return equivalent number in nepaliNumber
-         * @param number {Integer} number
+         * @param {Integer} number
          * @returns {String} nepaliNumber
          */
         getNepaliNumber: function (number) {
@@ -104,7 +113,7 @@ var calenderFunctions = {};
         },
         /**
          * Return equivalent number from nepaliNumber
-         * @param nepaliNumber {String} nepaliNumber
+         * @param {String} nepaliNumber
          * @returns {Integer} number
          */
         getNumberByNepaliNumber: function (nepaliNumber) {
@@ -171,46 +180,65 @@ var calenderFunctions = {};
             var daysNumFromMinBsYear = 0;
             var diffYears = bsYear - calenderData.minBsYear;
             for (var monthIndex = 0; monthIndex < 12; monthIndex++) {
-                if (monthIndex <= bsMonth) {
+                if (monthIndex < bsMonth) {
+                    daysNumFromMinBsYear += calenderFunctions.getMonthDaysNumFormMinBsYear(monthIndex, diffYears + 1);
+                } else {
                     daysNumFromMinBsYear += calenderFunctions.getMonthDaysNumFormMinBsYear(monthIndex, diffYears);
-                } else if (diffYears > 0) {
-                    daysNumFromMinBsYear += calenderFunctions.getMonthDaysNumFormMinBsYear(monthIndex, diffYears - 1);
                 }
             }
 
-            return daysNumFromMinBsYear += bsDate;
+            if (bsYear > 2085 && bsYear < 2088) {
+                daysNumFromMinBsYear += bsDate - 2;
+            } else if (bsYear > 2088 && bsMonth > 4) {
+                daysNumFromMinBsYear += bsDate - 4;
+            } else {
+                daysNumFromMinBsYear += bsDate;
+            }
+
+            return daysNumFromMinBsYear;
         },
-        getMonthDaysNumFormMinBsYear: function (bsMonth, diffYears) {
+        /**
+         * Return total number of bsMonth days from minYear
+         * @param {Integer} bsMonth
+         * @param {integer} yearDiff
+         * @returns {number}
+         */
+        getMonthDaysNumFormMinBsYear: function (bsMonth, yearDiff) {
+            validationFunctions.validateRequiredParameters({"bsMonth": bsMonth, "yearDiff": yearDiff});
+            validationFunctions.validateBsMonth(bsMonth);
+            validationFunctions.validatePositiveNumber({"yearDiff": yearDiff});
+
             var yearCount = 0;
             var monthDaysFromMinBsYear = 0;
-            var preBsMonth = (bsMonth - 1 != -1) ? bsMonth - 1 : 11;
-            if (diffYears === 0 && preBsMonth === 11) {
+            if (yearDiff === 0) {
                 return 0;
             }
 
-            if (preBsMonth == 11) {
-                diffYears -= 1;
-            }
-
-            var bsMonthData = calenderData.extractedBsMonthData[preBsMonth];
+            var bsMonthData = calenderData.extractedBsMonthData[bsMonth];
             for (var i = 0; i < bsMonthData.length; i++) {
                 if (bsMonthData[i] === 0) {
                     continue;
                 }
 
                 var bsMonthUpperDaysIndex = i % 2;
-                if (diffYears >= yearCount + bsMonthData[i]) {
+                if (yearDiff > yearCount + bsMonthData[i]) {
                     yearCount += bsMonthData[i];
-                    monthDaysFromMinBsYear += calenderData.bsMonthUpperDays[preBsMonth][bsMonthUpperDaysIndex] * bsMonthData[i];
+                    monthDaysFromMinBsYear += calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex] * bsMonthData[i];
                 } else {
-                    monthDaysFromMinBsYear += calenderData.bsMonthUpperDays[preBsMonth][bsMonthUpperDaysIndex] * (diffYears - yearCount + 1);
-                    yearCount = diffYears;
+                    monthDaysFromMinBsYear += calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex] * (yearDiff - yearCount);
+                    yearCount = yearDiff - yearCount;
                     break;
                 }
             }
 
             return monthDaysFromMinBsYear;
         },
+        /**
+         * Return number of bsMonth days
+         * @param {Integer} bsYear
+         * @param {Integer} bsMonth
+         * @returns {int} days
+         */
         getBsMonthDays: function (bsYear, bsMonth) {
             validationFunctions.validateRequiredParameters({"bsYear": bsYear, "bsMonth": bsMonth});
             validationFunctions.validateBsYear(bsYear);
@@ -227,7 +255,11 @@ var calenderFunctions = {};
                 var bsMonthUpperDaysIndex = i % 2;
                 yearCount += bsMonthData[i];
                 if (totalYears <= yearCount) {
-                    return calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex];
+                    if ((bsYear == 2085 && bsMonth == 4) || (bsYear == 2088 && bsMonth == 4)) {
+                        return calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex] - 2;
+                    } else {
+                        return calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex];
+                    }
                 }
             }
 

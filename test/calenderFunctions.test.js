@@ -136,7 +136,7 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
             bsYear: 2072,
             bsMonth: 2,
             bsDate: 10,
-            weekDay: 5,
+            weekDay: 4,
             formattedDate: '२०७२, असार बिही',
             adDate: new Date(2015, 5, 25),
             bsMonthFirstAdDate: new Date(2015, 5, 16),
@@ -147,8 +147,8 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
             bsYear: 2090,
             bsMonth: 11,
             bsDate: 30,
-            weekDay: 5,
-            formattedDate: 'बुध, चैत ३०, २०९०',
+            weekDay: 4,
+            formattedDate: 'बिही, चैत ३०, २०९०',
             adDate: new Date(2034, 3, 13),
             bsMonthFirstAdDate: new Date(2034, 2, 15),
             bsMonthDays: 30
@@ -182,6 +182,18 @@ describe("Test: calenderFunctions.getBsMonthDays(bsYear, bsMonth)", function () 
         }).not.toThrow(TypeError, "Invalid parameter bsMonth value");
     });
 
+    it("Should throw RangeError if bsYear value out the supported range", function () {
+        expect(function () {
+            calenderFunctions.getBsMonthInfoByBsDate(9000, 2, 10, "y%, %M %D");
+        }).toThrowError(RangeError, "Parameter bsYear value should be in range of 2000 to 2090");
+    });
+
+    it("Should throw RangeError if bsMonth value not in range 0-11", function () {
+        expect(function () {
+            calenderFunctions.getBsMonthInfoByBsDate(2072, 20, 10, "y%, %M %D");
+        }).toThrowError(RangeError, "Parameter bsMonth value should be in range of 0 to 11");
+    });
+
     it("Should return valid number of BsMonth days", function () {
         expect(calenderFunctions.getBsMonthDays(2000, 0)).toEqual(30);
         expect(calenderFunctions.getBsMonthDays(2000, 5)).toEqual(30);
@@ -198,5 +210,35 @@ describe("Test: calenderFunctions.getBsMonthDays(bsYear, bsMonth)", function () 
         expect(calenderFunctions.getBsMonthDays(2090, 0)).toEqual(30);
         expect(calenderFunctions.getBsMonthDays(2090, 6)).toEqual(30);
         expect(calenderFunctions.getBsMonthDays(2090, 11)).toEqual(30);
+    });
+});
+
+describe("Test: calenderFunctions.getMonthDaysNumFormMinBsYear(bsMonth, yearDiff)", function () {
+    it("Should throw ReferenceError on not pass required parameters", function () {
+        expect(
+            function () {
+                calenderFunctions.getMonthDaysNumFormMinBsYear()
+            }).toThrowError(ReferenceError, "Missing required parameters: bsMonth, yearDiff");
+    });
+
+    it("Should throw TypeError if bsMonth not number", function () {
+        expect(function () {
+            calenderFunctions.getMonthDaysNumFormMinBsYear('baishak', 1);
+        }).toThrowError(TypeError, "Invalid parameter bsMonth value");
+        expect(function () {
+            calenderFunctions.getMonthDaysNumFormMinBsYear(2, 2);
+        }).not.toThrow(TypeError, "Invalid parameter bsMonth value");
+    });
+
+    it("Should throw TypeError if yearDiff not number", function () {
+        expect(function () {
+            calenderFunctions.getMonthDaysNumFormMinBsYear(2, '2');
+        }).toThrowError(ReferenceError, "Invalid parameters: yearDiff");
+        expect(function () {
+            calenderFunctions.getMonthDaysNumFormMinBsYear(2, 200);
+        }).toThrowError(RangeError, "Parameter yearDiff value should be in range of 0 to 91");
+        expect(function () {
+            calenderFunctions.getMonthDaysNumFormMinBsYear(2, 10);
+        }).not.toThrow(TypeError, "Invalid parameter yearDiff value");
     });
 });
