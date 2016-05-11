@@ -65,14 +65,14 @@ var calenderFunctions = {};
                 throw new RangeError("Parameter bsYear value should be in range of " + calenderData.minBsYear + " to " + calenderData.maxBsYear);
             }
         },
-        validateBsMonth : function(bsMonth){
+        validateBsMonth: function (bsMonth) {
             if (typeof bsMonth !== "number" || bsMonth === null) {
                 throw new TypeError("Invalid parameter bsMonth value");
             } else if (bsMonth < 0 || bsMonth > 11) {
                 throw new RangeError("Parameter bsMonth value should be in range of 0 to 11");
             }
         },
-        validateBsDate : function(bsDate){
+        validateBsDate: function (bsDate) {
             if (typeof bsDate !== "number" || bsDate === null) {
                 throw new TypeError("Invalid parameter bsDate value");
             } else if (bsDate < 1 || bsDate > 32) {
@@ -130,9 +130,9 @@ var calenderFunctions = {};
             validationFunctions.validateBsYear(bsYear);
             validationFunctions.validateBsMonth(bsMonth);
             validationFunctions.validateBsDate(bsDate);
-            if(dateFormatPattern === null){
+            if (dateFormatPattern === null) {
                 dateFormatPattern = "%D, %M %d, %y";
-            }else if(typeof dateFormatPattern != "string"){
+            } else if (typeof dateFormatPattern != "string") {
                 throw new TypeError("Invalid parameter dateFormatPattern value");
             }
 
@@ -212,8 +212,12 @@ var calenderFunctions = {};
             return monthDaysFromMinBsYear;
         },
         getBsMonthDays: function (bsYear, bsMonth) {
+            validationFunctions.validateRequiredParameters({"bsYear": bsYear, "bsMonth": bsMonth});
+            validationFunctions.validateBsYear(bsYear);
+            validationFunctions.validateBsMonth(bsMonth);
+
             var yearCount = 0;
-            var diffYears = bsYear - calenderData.minBsYear;
+            var totalYears = (bsYear + 1) - calenderData.minBsYear;
             var bsMonthData = calenderData.extractedBsMonthData[bsMonth];
             for (var i = 0; i < bsMonthData.length; i++) {
                 if (bsMonthData[i] === 0) {
@@ -222,7 +226,7 @@ var calenderFunctions = {};
 
                 var bsMonthUpperDaysIndex = i % 2;
                 yearCount += bsMonthData[i];
-                if (diffYears <= yearCount) {
+                if (totalYears <= yearCount) {
                     return calenderData.bsMonthUpperDays[bsMonth][bsMonthUpperDaysIndex];
                 }
             }

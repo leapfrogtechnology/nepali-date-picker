@@ -136,11 +136,11 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
             bsYear: 2072,
             bsMonth: 2,
             bsDate: 10,
-            weekDay: 4,
+            weekDay: 5,
             formattedDate: '२०७२, असार बिही',
             adDate: new Date(2015, 5, 25),
             bsMonthFirstAdDate: new Date(2015, 5, 16),
-            bsMonthDays: 32
+            bsMonthDays: 31
         });
 
         expect(calenderFunctions.getBsMonthInfoByBsDate(2090, 11, 30, "%D, %M %d, %y")).toEqual({
@@ -154,4 +154,49 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
             bsMonthDays: 30
         });
     })
+});
+
+describe("Test: calenderFunctions.getBsMonthDays(bsYear, bsMonth)", function () {
+    it("Should throw ReferenceError on not pass required parameters", function () {
+        expect(
+            function () {
+                calenderFunctions.getBsMonthDays()
+            }).toThrowError(ReferenceError, "Missing required parameters: bsYear, bsMonth");
+    });
+
+    it("Should throw TypeError if bsYear not number", function () {
+        expect(function () {
+            calenderFunctions.getBsMonthDays("2569", 2);
+        }).toThrowError(TypeError, "Invalid parameter bsYear value");
+        expect(function () {
+            calenderFunctions.getBsMonthDays(2072, 2);
+        }).not.toThrow(TypeError, "Invalid parameter bsYear value");
+    });
+
+    it("Should throw TypeError if bsMonth not number", function () {
+        expect(function () {
+            calenderFunctions.getBsMonthDays(2017, '2');
+        }).toThrowError(TypeError, "Invalid parameter bsMonth value");
+        expect(function () {
+            calenderFunctions.getBsMonthDays(2072, 2);
+        }).not.toThrow(TypeError, "Invalid parameter bsMonth value");
+    });
+
+    it("Should return valid number of BsMonth days", function () {
+        expect(calenderFunctions.getBsMonthDays(2000, 0)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2000, 5)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2001, 0)).toEqual(31);
+        expect(calenderFunctions.getBsMonthDays(2001, 4)).toEqual(31);
+        expect(calenderFunctions.getBsMonthDays(2010, 9)).toEqual(29);
+        expect(calenderFunctions.getBsMonthDays(2010, 11)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2045, 1)).toEqual(32);
+        expect(calenderFunctions.getBsMonthDays(2045, 4)).toEqual(31);
+        expect(calenderFunctions.getBsMonthDays(2060, 2)).toEqual(32);
+        expect(calenderFunctions.getBsMonthDays(2060, 6)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2073, 0)).toEqual(31);
+        expect(calenderFunctions.getBsMonthDays(2073, 8)).toEqual(29);
+        expect(calenderFunctions.getBsMonthDays(2090, 0)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2090, 6)).toEqual(30);
+        expect(calenderFunctions.getBsMonthDays(2090, 11)).toEqual(30);
+    });
 });
