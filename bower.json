@@ -5,7 +5,8 @@
     "Sanish Maharjan <sanishmaharjan@lftechnology.com>"
   ],
   "main": [
-    "jquery.nepaliDatePicker.js"
+    "src/jquery.nepaliDatePicker.js",
+    "src/nepaliDatePicker.css"
   ],
   "description": "Nepali date picker",
   "keywords": [
