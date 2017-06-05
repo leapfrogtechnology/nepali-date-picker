@@ -386,9 +386,9 @@ var calenderFunctions = {};
             addEventHandler: function ($element, $nepaliDatePicker) {
                 $element.focus(function () {
                     $(".nepali-date-picker").hide();
-                    var inputFieldPosition = $(this).position();
+                    var inputFieldPosition = $(this).offset();
                     $nepaliDatePicker.css({
-                        "top": inputFieldPosition.top + $(this).outerHeight,
+                        "top": inputFieldPosition.top + $(this).outerHeight(true),
                         "left": inputFieldPosition.left
                     });
 
@@ -398,9 +398,9 @@ var calenderFunctions = {};
 
                 $element.click(function () {
                     $(".nepali-date-picker").hide();
-                    var inputFieldPosition = $(this).position();
+                    var inputFieldPosition = $(this).offset();
                     $nepaliDatePicker.css({
-                        "top": inputFieldPosition.top + $(this).outerHeight,
+                        "top": inputFieldPosition.top + $(this).outerHeight(true),
                         "left": inputFieldPosition.left
                     });
 
