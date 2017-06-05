@@ -306,7 +306,7 @@ var calenderFunctions = {};
             var formattedDate = dateFormatPattern;
             formattedDate = formattedDate.replace(/%d/g, calenderFunctions.getNepaliNumber(bsDate));
             formattedDate = formattedDate.replace(/%y/g, calenderFunctions.getNepaliNumber(bsYear));
-            formattedDate = formattedDate.replace(/%m/g, bsMonth);
+            formattedDate = formattedDate.replace(/%m/g, calenderFunctions.getNepaliNumber(bsMonth+1));
             formattedDate = formattedDate.replace(/%M/g, calenderData.bsMonths[bsMonth]);
             formattedDate = formattedDate.replace(/%D/g, calenderData.bsDays[day]);
             return formattedDate;
