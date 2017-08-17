@@ -375,17 +375,13 @@ var calenderFunctions = {};
                 datePickerPlugin.addCommonEventHandler($nepaliDatePicker);
             },
             addCommonEventHandler: function () {
-                $(document).click(function(event) {
-                  if (!datePickerPlugin._currentInstance) {
-                    return;
-                  }
-                  var $targetElement = $(event.target),
-                    inst = datePickerPlugin.getInstance($targetElement[0]);
-
-                  if (inst[0] !== datePickerPlugin._currentInstance[0] && !$targetElement.parents('.nepali-date-picker').length) {
-                    $nepaliDatePicker.hide();
-                    $nepaliDatePicker.find(".drop-down-content").hide();
-                  }
+                var $datePickerWrapper = $(".nepali-date-picker");
+                $(document).click(function (event) {
+                    var $targetElement = $(event.target);
+                    if (!$targetElement.parents($(".nepali-date-picker")).length) {
+                        $datePickerWrapper.hide();
+                        $datePickerWrapper.find(".drop-down-content").hide();
+                    }
                 });
             },
             addEventHandler: function ($element, $nepaliDatePicker) {
@@ -790,6 +786,8 @@ var calenderFunctions = {};
             var $element = $(this);
             datePickerPlugin.init($element);
         });
+
+        datePickerPlugin.addCommonEventHandler();
         return this;
     };
 }(jQuery, calenderFunctions));
