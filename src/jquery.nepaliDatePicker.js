@@ -475,6 +475,7 @@ var calenderFunctions = {};
                     var weekDay = $(this).data("weekday");
                     var dateText = calenderFunctions.bsDateFormat(datePickerPlugin.options.dateFormat, bsYear, bsMonth, bsDate, weekDay);
                     $element.val(dateText);
+                    $element.trigger('change');
                     datePickerPlugin.setCalenderDate($nepaliDatePicker, bsYear, bsMonth, bsDate);
                     datePickerPlugin.renderMonthCalender($nepaliDatePicker);
 
