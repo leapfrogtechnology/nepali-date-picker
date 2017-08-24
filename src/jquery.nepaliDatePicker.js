@@ -378,27 +378,19 @@ var calenderFunctions = {};
                 var $datePickerWrapper = $(".nepali-date-picker");
                 $(document).click(function (event) {
                     var $targetElement = $(event.target);
-                    if (!$targetElement.parents($(".nepali-date-picker")).length) {
+                    if (!$targetElement.is($(".nepali-date-picker"))) {
                         $datePickerWrapper.hide();
                         $datePickerWrapper.find(".drop-down-content").hide();
                     }
                 });
             },
             addEventHandler: function ($element, $nepaliDatePicker) {
-                $element.focus(function () {
-                    $(".nepali-date-picker").hide();
-                    var inputFieldPosition = $(this).offset();
-                    $nepaliDatePicker.css({
-                        "top": inputFieldPosition.top + $(this).outerHeight(true),
-                        "left": inputFieldPosition.left
-                    });
-
-                    $nepaliDatePicker.show();
-                    datePickerPlugin.eventFire($element, $nepaliDatePicker, "show");
-                });
-
                 $element.click(function () {
-                    $(".nepali-date-picker").hide();
+                    if($(".nepali-date-picker").is(":visible")){
+                        $(".nepali-date-picker").hide();
+                        return;
+                    }
+
                     var inputFieldPosition = $(this).offset();
                     $nepaliDatePicker.css({
                         "top": inputFieldPosition.top + $(this).outerHeight(true),
@@ -407,6 +399,8 @@ var calenderFunctions = {};
 
                     $nepaliDatePicker.show();
                     datePickerPlugin.eventFire($element, $nepaliDatePicker, "show");
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".next-btn", function (event) {
@@ -419,6 +413,8 @@ var calenderFunctions = {};
                     datePickerPlugin.renderNextMonthCalender($nepaliDatePicker);
                     datePickerPlugin.triggerChangeEvent($element, $nepaliDatePicker, preCalenderData);
                     $nepaliDatePicker.show();
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".prev-btn", function (event) {
@@ -432,6 +428,8 @@ var calenderFunctions = {};
                     var calenderData = $nepaliDatePicker.data();
                     datePickerPlugin.triggerChangeEvent($element, $nepaliDatePicker, preCalenderData);
                     $nepaliDatePicker.show();
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".today-btn", function (event) {
@@ -445,6 +443,8 @@ var calenderFunctions = {};
                     var calenderData = $nepaliDatePicker.data();
                     datePickerPlugin.triggerChangeEvent($element, $nepaliDatePicker, preCalenderData);
                     $nepaliDatePicker.show();
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".current-year-txt, .current-month-txt", function () {
@@ -458,6 +458,8 @@ var calenderFunctions = {};
                     } else {
                         $(this).find(".drop-down-content").hide();
                     }
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".current-month-date", function () {
@@ -486,6 +488,8 @@ var calenderFunctions = {};
                     } else {
                         $nepaliDatePicker.show();
                     }
+
+                    return false;
                 });
 
                 $nepaliDatePicker.on("click", ".drop-down-content li", function () {
@@ -506,6 +510,8 @@ var calenderFunctions = {};
                     var calenderData = $nepaliDatePicker.data();
                     datePickerPlugin.triggerChangeEvent($element, $nepaliDatePicker, preCalenderData);
                     $nepaliDatePicker.show();
+
+                    return false;
                 });
             },
             triggerChangeEvent: function ($element, $nepaliDatePicker, preCalenderData) {
