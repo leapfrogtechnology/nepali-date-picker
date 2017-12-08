@@ -5,5 +5,4 @@ before_script:
   - bower install
 script: grunt test
 node_js:
-  - "iojs"
   - "7"
