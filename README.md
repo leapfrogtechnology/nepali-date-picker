@@ -54,5 +54,8 @@ $ grunt update
   ``` bash
   $ grunt test
   ```
+  
+### Travis CI
+> https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
  
  
