@@ -1,4 +1,13 @@
 # Nepali-Date-Picker
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Download Count][download-url]][npm-url]
+
+[travis-image]: https://api.travis-ci.org/leapfrogtechnology/Nepali-Date-Picker.svg?branch=master
+[travis-url]: https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
+[npm-image]: https://img.shields.io/npm/v/nepali-date-picker.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/nepali-date-picker
+[download-url]: https://img.shields.io/npm/dt/nepali-date-picker.svg?style=flat-square
 
 ### Install:
 For npm installation : 
@@ -32,8 +41,10 @@ $(".date-picker").nepaliDatePicker({
       maxDate : "मंगल, जेठ ३२, २०७३"
   });
 ```
+- Documentation 
+> https://nepali-date-picker.herokuapp.com/demo/
 
-## For deplopers only
+## For developers only
 
 ### Installing dependancies
 ``` bash
@@ -45,7 +56,7 @@ $ npm install
 $ grunt update
 ```
  
- ### Minifying javascript & css
+ ### Minify javascript & css
  ``` bash
  $ grunt compress
  ```
@@ -54,8 +65,9 @@ $ grunt update
   ``` bash
   $ grunt test
   ```
+### Demo
+> https://nepali-date-picker.herokuapp.com/demo/
   
 ### Travis CI
 > https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
- 
  

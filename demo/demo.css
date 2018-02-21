@@ -1,0 +1,111 @@
+html {
+    background-color: #eee;
+    font-family: OpenSans, Arial, sans-serif;
+    margin: 10px auto;
+}
+
+h2 {
+    border-bottom: 1px solid #eee;
+}
+
+.main-wrapper {
+    background-color: #ffffff;
+    width: 1000px;
+    margin: 25px auto;
+    padding: 20px;
+    overflow: hidden;
+    clear: both;
+    border-radius: 10px;
+}
+
+fieldset.demo {
+    padding: 10px;
+    border: 1px solid #f5eeee;
+    margin: 0;
+}
+
+fieldset.code {
+    padding: 10px;
+    border: 1px solid #f5eeee;
+    color: #5463e6;
+    margin: 0;
+}
+
+fieldset.fix-height {
+    height: calc(100% - 22px);
+}
+
+legend {
+    color: #19b119;
+}
+
+pre {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    overflow: hidden;
+    clear: both;
+    margin: 15px 0;
+}
+
+.code-wrapper {
+    width: 60%;
+    float: left;
+    height: 200px;
+    overflow: auto;
+}
+
+.demo-wrapper {
+    width: 40%;
+    float: left;
+    height: 200px;
+    overflow: auto;
+}
+
+label {
+    color: #333333;
+    display: block;
+}
+
+input {
+    width: 80%;
+}
+
+.comment {
+    color: gray;
+}
+
+table {
+    border: 1px solid silver;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #2f2e2e;
+    margin-bottom: 25px;
+}
+
+thead {
+    font-weight: bold;
+    background: #cccccc9e;
+}
+
+td {
+    border: 1px solid silver;
+    padding: 2px 10px;
+    vertical-align: text-top;
+}
+
+.output, .preview {
+    height: 150px;
+    overflow: auto;
+}
+
+.command-result {
+    color: #68abff;
+}
+
+.command-text {
+    color: #19b119;
+}
