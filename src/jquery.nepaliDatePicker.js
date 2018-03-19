@@ -338,7 +338,7 @@ var calenderFunctions = {};
                         extractedFormattedBsDate.bsDay = calenderData.bsDays.indexOf(value);
                         diffTextNum += value.length - 2;
                     } else if (valueOf == "%m") {
-                        extractedFormattedBsDate.bsMonth = calenderFunctions.getNumberByNepaliNumber(value);
+                        extractedFormattedBsDate.bsMonth = calenderFunctions.getNumberByNepaliNumber(value) -1;
                         diffTextNum += value.length - 2;
                     } else if (valueOf == "%M") {
                         extractedFormattedBsDate.bsMonth = calenderData.bsMonths.indexOf(value);
