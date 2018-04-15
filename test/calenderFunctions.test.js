@@ -83,7 +83,7 @@ describe("Test: calenderFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
     it("Should throw RangeError if bsYear value out the supported range", function () {
         expect(function () {
             calenderFunctions.getBsMonthInfoByBsDate(9000, 2, 10, "y%, %M %D");
-        }).toThrowError(RangeError, "Parameter bsYear value should be in range of 2000 to 2090");
+        }).toThrowError(RangeError, "Parameter bsYear value should be in range of 1970 to 2100");
     });
 
     it("Should throw RangeError if bsMonth value not in range 0-11", function () {
@@ -185,7 +185,7 @@ describe("Test: calenderFunctions.getBsMonthDays(bsYear, bsMonth)", function () 
     it("Should throw RangeError if bsYear value out the supported range", function () {
         expect(function () {
             calenderFunctions.getBsMonthInfoByBsDate(9000, 2, 10, "y%, %M %D");
-        }).toThrowError(RangeError, "Parameter bsYear value should be in range of 2000 to 2090");
+        }).toThrowError(RangeError, "Parameter bsYear value should be in range of 1970 to 2100");
     });
 
     it("Should throw RangeError if bsMonth value not in range 0-11", function () {
@@ -236,7 +236,7 @@ describe("Test: calenderFunctions.getMonthDaysNumFormMinBsYear(bsMonth, yearDiff
         }).toThrowError(ReferenceError, "Invalid parameters: yearDiff");
         expect(function () {
             calenderFunctions.getMonthDaysNumFormMinBsYear(2, 200);
-        }).toThrowError(RangeError, "Parameter yearDiff value should be in range of 0 to 91");
+        }).toThrowError(RangeError, "Parameter yearDiff value should be in range of 0 to 131");
         expect(function () {
             calenderFunctions.getMonthDaysNumFormMinBsYear(2, 10);
         }).not.toThrow(TypeError, "Invalid parameter yearDiff value");
