@@ -26,26 +26,27 @@ var calenderFunctions = {};
             [30, 31]
         ],
         extractedBsMonthData: [
-            [1, 3, 1, 22, 1, 3, 1, 3, 1, 22, 1, 3, 1, 19, 1, 3, 1, 1, 3],
-            [0, 1, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2],
-            [1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 1, 1, 1, 2, 2, 2, 2],
-            [0, 1, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 2, 2, 1, 3],
-            [29, 1, 26, 1, 28, 1, 2, 1, 2], [1, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 1, 1, 2, 2],
-            [0, 8, 1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 20],
-            [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 11],
-            [1, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 11],
-            [0, 1, 3, 1, 14, 1, 3, 1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 3, 1, 14, 1, 3, 10],
-            [1, 3, 1, 3, 1, 10, 1, 3, 1, 3, 1, 3, 1, 3, 1, 14, 1, 3, 1, 3, 1, 3, 1, 3, 1, 10, 1, 13],
-            [0, 1, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 13]
+            [0, 1, 1, 22, 1, 3, 1, 1,1, 3, 1, 22, 1, 3, 1, 3, 1, 22, 1, 3, 1, 19, 1, 3, 1, 1, 3, 1, 2, 2, 1, 3, 1],
+            [1, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 3,2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 1, 3, 1, 1, 2],
+            [0, 1, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3,2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 3, 1, 1, 2],
+            [1, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3,1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 2, 2, 1, 3, 1, 2, 2, 2, 1, 2],
+            [59,1, 26, 1, 28, 1, 2, 1, 12],
+            [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3,1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 1, 1, 2, 2, 1, 3, 1, 2, 1, 2],
+            [0, 12, 1, 3, 1, 3, 1, 5, 1, 11,1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 27, 1, 2],
+            [1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 1, 3,2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 15, 2, 4],
+            [0, 1, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 3,2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 2, 2, 2, 15, 2, 4],
+            [1, 1, 3, 1, 3, 1, 14, 1, 3, 1, 1,1, 3, 1, 14, 1, 3, 1, 3, 1, 3, 1, 18, 1, 3, 1, 3, 1, 3, 1, 14, 1, 3, 15, 1, 2, 1, 1],
+            [0, 1, 1, 3, 1, 3, 1, 10, 1, 3, 1, 3, 1, 1, 1, 3, 1, 3, 1, 10, 1, 3, 1, 3, 1, 3, 1, 3, 1, 14, 1, 3, 1, 3, 1, 3, 1, 3, 1, 10, 1, 20, 1, 1, 1],
+            [1, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 2, 2, 2, 2, 2, 2, 2, 1, 3, 1, 3, 1, 20, 3]
         ],
-        minBsYear: 2000,
-        maxBsYear: 2090,
+        minBsYear: 1970,
+        maxBsYear: 2100,
         minAdDateEqBsDate: {
             "ad": {
-                "year": 1943, "month": 3, "date": 14
+                "year": 1913, "month": 3, "date": 13
             },
             "bs": {
-                "year": 2000, "month": 1, "date": 1
+                "year": 1970, "month": 1, "date": 1
             }
         }
     };
@@ -187,11 +188,15 @@ var calenderFunctions = {};
                 }
             }
 
-            if (bsYear > 2085 && bsYear < 2088) {
+            if(bsYear > 2085 && bsYear < 2088){
                 daysNumFromMinBsYear += bsDate - 2;
-            } else if (bsYear > 2088 && bsMonth > 4) {
+            } else if(bsYear == 2085 && bsMonth > 4){
+                daysNumFromMinBsYear += bsDate - 2;
+            } else if(bsYear > 2088){
                 daysNumFromMinBsYear += bsDate - 4;
-            } else {
+            } else if(bsYear == 2088 && bsMonth > 4){
+                daysNumFromMinBsYear += bsDate - 4;
+            }else{
                 daysNumFromMinBsYear += bsDate;
             }
 
@@ -338,7 +343,7 @@ var calenderFunctions = {};
                         extractedFormattedBsDate.bsDay = calenderData.bsDays.indexOf(value);
                         diffTextNum += value.length - 2;
                     } else if (valueOf == "%m") {
-                        extractedFormattedBsDate.bsMonth = calenderFunctions.getNumberByNepaliNumber(value);
+                        extractedFormattedBsDate.bsMonth = calenderFunctions.getNumberByNepaliNumber(value) -1;
                         diffTextNum += value.length - 2;
                     } else if (valueOf == "%M") {
                         extractedFormattedBsDate.bsMonth = calenderData.bsMonths.indexOf(value);
@@ -683,7 +688,7 @@ var calenderFunctions = {};
                 var weekCoverInMonth = Math.ceil((datePickerData.bsMonthFirstAdDate.getDay() + datePickerData.bsMonthDays) / 7);
                 var preMonth = (datePickerData.bsMonth - 1 != -1) ? datePickerData.bsMonth - 1 : 11;
                 var preYear = preMonth == 11 ? datePickerData.bsYear - 1 : datePickerData.bsYear;
-                var preMonthDays = calenderFunctions.getBsMonthDays(preYear, preMonth);
+                var preMonthDays = preYear >= calenderData.minBsYear ?  calenderFunctions.getBsMonthDays(preYear, preMonth) : 30;
                 var minBsDate = null;
                 var maxBsDate = null;
 
