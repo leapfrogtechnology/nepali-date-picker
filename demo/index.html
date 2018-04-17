@@ -16,7 +16,7 @@
                 <legend>HTML Code</legend>
                 <pre>
 &lt;p&gt;
-    &lt;label>BOD: &lt;/label&gt;
+    &lt;label>DOB: &lt;/label&gt;
     &lt;input type="text" value="" name="date" class="bod-picker" placeholder="Select Date of Birth"&gt;
     &lt;button id="clear-bth" onclick="">Clear&lt;/button&gt;
 &lt;/p&gt;
@@ -45,7 +45,7 @@ $("#clear-bth").on("click", function(event) {
             <fieldset class="demo fix-height">
                 <legend>Demo</legend>
                 <p>
-                    <label>BOD: </label>
+                    <label>DOB: </label>
                     <input type="text" value="" name="date" class="bod-picker" placeholder="Select Date of Birth">
                     <button id="clear-bth" onclick="">Clear</button>
                 </p>
@@ -165,21 +165,21 @@ $("#clear-bth").on("click", function(event) {
                 <legend>JS Code</legend>
                 <pre>
 var currentDate = new Date();
-var currentNepaliDate = calenderFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-var formatedNepaliDate = calenderFunctions.bsDateFormat("%y-%m-%d",currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
+var currentNepaliDate = calenderFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+var formatedNepaliDate = calenderFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
 $("#from-picker").nepaliDatePicker({
     dateFormat: "%y-%m-%d",
     closeOnDateSelect: true,
-    minDate : "२०७०-१-२०",
-    maxDate : formatedNepaliDate
+    minDate: "२०७०-१-२०",
+    maxDate: formatedNepaliDate
 });
 
 $("#to-picker").val(formatedNepaliDate);
 $("#to-picker").nepaliDatePicker({
     dateFormat: "%y-%m-%d",
     closeOnDateSelect: true,
-    minDate : "२०७०-१-२०",      <span class="comment">//should be formated as dateFormat option set </span>
-    maxDate : formatedNepaliDate
+    minDate: "२०७०-१-२०",
+    maxDate: formatedNepaliDate
 });
                 </pre>
             </fieldset>
@@ -223,7 +223,7 @@ $("#to-picker").nepaliDatePicker({
             </tr>
             <tr>
                 <td>
-                    select
+                    dateSelect
                 </td>
                 <td>
                     Event trigger on select date
@@ -292,7 +292,7 @@ $("#date-picker").on("show", function (event) {
 });
 
 $("#date-picker").on("yearChange", function (event) {
-
+    eventLog(event);
 });
 
 $("#date-picker").on("monthChange", function (event) {
@@ -300,6 +300,10 @@ $("#date-picker").on("monthChange", function (event) {
 });
 
 $("#date-picker").on("dateChange", function (event) {
+    eventLog(event);
+});
+
+$("#date-picker").on("dateSelect", function (event) {
     eventLog(event);
 });
                 </pre>
@@ -329,13 +333,13 @@ $("#date-picker").on("dateChange", function (event) {
             </li>
             <li>
                 Month start form 0 index <br/>
-                <span class="comment">0: January | बैशाख</span><br/>
-                <span class="comment">11: December | चैत</span><br/>
+                <span class="comment">1: January | बैशाख</span><br/>
+                <span class="comment">12: December | चैत</span><br/>
             </li>
             <li>
                 Week Day start form 0 index <br/>
-                <span class="comment">0: Sunday | आईत</span><br/>
-                <span class="comment">6: Saturday | शनि</span><br/>
+                <span class="comment">1: Sunday | आईत</span><br/>
+                <span class="comment">7: Saturday | शनि</span><br/>
             </li>
         </ul>
         </p>
@@ -635,13 +639,9 @@ $("#date-picker").on("dateChange", function (event) {
 
     console.log(calenderFunctions.getBsYearByAdDate(2017, 2, 15));
 
-    console.log(calenderFunctions.getBsYearByAdDate(2017, 2, 15));
-
     console.log(calenderFunctions.getBsMonthByAdDate(2017, 2, 15));
 
-    console.log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3));
-
-    console.log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3));
+    console.log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9));
 
     console.log(calenderFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध"));
             </pre>
