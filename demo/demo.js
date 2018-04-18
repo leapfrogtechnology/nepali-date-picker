@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 
     var currentDate = new Date();
-    var currentNepaliDate = calenderFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+    var currentNepaliDate = calenderFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
     var formatedNepaliDate = calenderFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
     $("#from-picker").nepaliDatePicker({
         dateFormat: "%y-%m-%d",
@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
 
     $("#date-picker").on("yearChange", function (event) {
-
+        eventLog(event);
     });
 
     $("#date-picker").on("monthChange", function (event) {
@@ -54,6 +54,10 @@ $(document).ready(function () {
     });
 
     $("#date-picker").on("dateChange", function (event) {
+        eventLog(event);
+    });
+
+    $("#date-picker").on("dateSelect", function (event) {
         eventLog(event);
     });
 
@@ -85,17 +89,11 @@ $(document).ready(function () {
         log('calenderFunctions.getBsYearByAdDate(2017, 2, 15);', false);
         log(calenderFunctions.getBsYearByAdDate(2017, 2, 15), true);
 
-        log('calenderFunctions.getBsYearByAdDate(2017, 2, 15);', false);
-        log(calenderFunctions.getBsYearByAdDate(2017, 2, 15), true);
-
         log('calenderFunctions.getBsMonthByAdDate(2017, 2, 15);', false);
         log(calenderFunctions.getBsMonthByAdDate(2017, 2, 15), true);
 
-        log('calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3);', false);
-        log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3), true);
-
-        log('calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3);', false);
-        log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9, 3), true);
+        log('calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9);', false);
+        log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9), true);
 
         log('calenderFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध");', false);
         log(calenderFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध"), true);
