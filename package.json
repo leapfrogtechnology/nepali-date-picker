@@ -5,33 +5,24 @@
     "Sanish Maharjan <sanishmaharjan@lftechnology.com>"
   ],
   "scripts": {
-    "start": "node server.js"
+    "test": "grunt test",
+    "build": "grunt build"
   },
   "main": "jquery.nepaliDatePicker.js",
   "description": "Nepali date picker",
   "keywords": [
-    "nepaliDatePicker",
-    "date picker"
+    "nepal",
+    "nepali",
+    "nepali date",
+    "date picker",
+    "nepali date picker"
   ],
   "ignore": [
     "bower_components"
   ],
   "license": "ISC",
   "dependencies": {
-    "grunt": ">=1.0.1",
-    "grunt-auto-install": "~0.2.4",
-    "grunt-available-tasks": "^0.6.2",
-    "grunt-cli": "^1.2.0",
-    "grunt-concurrent": "^2.3.0",
-    "grunt-contrib-cssmin": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-notify": "^0.4.5",
-    "jit-grunt": "^0.10.0",
-    "jquery": ">= 1.11.1",
-    "jshint-stylish": "^2.2.0",
-    "load-grunt-config": "^0.19.2",
-    "time-grunt": "^1.3.0"
+    "jquery": ">= 1.11.1"
   },
   "homepage": "https://github.com/leapfrogtechnology/Nepali-Date-Picker",
   "repository": {
@@ -39,7 +30,20 @@
     "url": "git@github.com:leapfrogtechnology/Nepali-Date-Picker.git"
   },
   "devDependencies": {
+    "grunt": ">=1.0.1",
+    "grunt-auto-install": "~0.2.4",
+    "grunt-available-tasks": "^0.6.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-concurrent": "^2.3.0",
+    "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-jasmine": "^1.0.3",
-    "jasmine-expect": "^2.0.2"
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-notify": "^0.4.5",
+    "jasmine-expect": "^2.0.2",
+    "jit-grunt": "^0.10.0",
+    "jshint-stylish": "^2.2.0",
+    "load-grunt-config": "^0.19.2",
+    "time-grunt": "^1.3.0"
   }
 }
