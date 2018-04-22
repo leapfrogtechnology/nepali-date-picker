@@ -9,65 +9,80 @@
 [npm-url]: https://npmjs.org/package/nepali-date-picker
 [download-url]: https://img.shields.io/npm/dt/nepali-date-picker.svg?style=flat-square
 
-### Install:
-For npm installation : 
-``` bash
-$ npm install nepali-date-picker --save
+### Installation
+
+**NPM**
+
+```bash
+$ npm install nepali-date-picker
 ```
 
-For bower installation : 
-``` bash
+**Bower**
+
+```bash
 $ bower install nepali-date-picker --save`
 ```
 
-### How do I use it?
-- First include to page css and js files
-``` html
+### Usage
+
+- Include `jquery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+
+```html
 <!-- this should go after your </body> -->
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="dist/jquery.nepaliDatePicker.min.js"></script>
 <link rel="stylesheet" href="dist/nepaliDatePicker.min.css">
 ```
-- Html
+
+- HTML
+
 ``` html
 <input type="text" value="" name="date" class="date-picker">
 ```
-- Javascript
-``` javascript
+
+- JavaScript
+
+```javascript
 $(".date-picker").nepaliDatePicker({
-      dateFormat: "%D, %M %d, %y",
-      closeOnDateSelect: true,
-      minDate : "सोम, जेठ १०, २०७३",
-      maxDate : "मंगल, जेठ ३२, २०७३"
-  });
+    dateFormat: "%D, %M %d, %y",
+    closeOnDateSelect: true,
+    minDate : "सोम, जेठ १०, २०७३",
+    maxDate : "मंगल, जेठ ३२, २०७३"
+});
 ```
-- Documentation 
+
+- Documentation
+
 > https://nepali-date-picker.herokuapp.com/demo/
 
-## For developers only
+## For Developers
 
-### Installing dependancies
-``` bash
+### Installing Dependencies
+
+```bash
+$ npm install
 $ bower install
 
-$ npm install
-
-#if you already install grunt dependencies
+# if you have installed grunt dependencies already
 $ grunt update
 ```
- 
- ### Minify javascript & css
- ``` bash
- $ grunt compress
+
+ ### Minify JavaScript & CSS (Build)
+
+ ```bash
+ $ npm run build
  ```
- 
- ### Testing calender Functions
-  ``` bash
-  $ grunt test
+
+ ### Tests
+
+  ```bash
+  $ npm test
   ```
+
 ### Demo
+
 > https://nepali-date-picker.herokuapp.com/demo/
-  
+
 ### Travis CI
+
 > https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
- 
