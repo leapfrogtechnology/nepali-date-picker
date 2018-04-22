@@ -3,7 +3,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Download Count][download-url]][npm-url]
 
-[travis-image]: https://api.travis-ci.org/leapfrogtechnology/Nepali-Date-Picker.svg?branch=master
+[travis-image]: https://img.shields.io/travis/leapfrogtechnology/Nepali-Date-Picker.svg?style=flat-square
 [travis-url]: https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
 [npm-image]: https://img.shields.io/npm/v/nepali-date-picker.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/nepali-date-picker
