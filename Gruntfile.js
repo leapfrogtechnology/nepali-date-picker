@@ -18,7 +18,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('compress', ['default', 'uglify', 'cssmin']);
+    grunt.registerTask('build', ['default', 'uglify', 'cssmin']);
     grunt.registerTask('update', ['auto_install']);
     grunt.registerTask('test', [
         'jshint',

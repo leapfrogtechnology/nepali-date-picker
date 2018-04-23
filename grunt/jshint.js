@@ -1,6 +1,6 @@
 module.exports = {
   customJs: {
-    options: {},
-    src: ['src/*.js']
+      options: {},
+      src: ['src/*.js']
   }
 };

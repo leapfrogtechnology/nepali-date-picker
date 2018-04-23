@@ -5,8 +5,9 @@ $(document).ready(function () {
     });
 
     var currentDate = new Date();
-    var currentNepaliDate = calenderFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
-    var formatedNepaliDate = calenderFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
+    var currentNepaliDate = calendarFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+    var formatedNepaliDate = calendarFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
+
     $("#from-picker").nepaliDatePicker({
         dateFormat: "%y-%m-%d",
         closeOnDateSelect: true,
@@ -71,32 +72,32 @@ $(document).ready(function () {
     }
 
     function preview() {
-        log('calenderFunctions.getNepaliNumber(125);', false);
-        log(calenderFunctions.getNepaliNumber(125), true);
+        log('calendarFunctions.getNepaliNumber(125);', false);
+        log(calendarFunctions.getNepaliNumber(125), true);
 
-        log('calenderFunctions.getNumberByNepaliNumber("१२५");', false);
-        log(calenderFunctions.getNumberByNepaliNumber("१२५"), true);
+        log('calendarFunctions.getNumberByNepaliNumber("१२५");', false);
+        log(calendarFunctions.getNumberByNepaliNumber("१२५"), true);
 
-        log('calenderFunctions.getAdDateByBsDate(2074,10, 15);', false);
-        log(calenderFunctions.getAdDateByBsDate(2074, 10, 15), true);
+        log('calendarFunctions.getAdDateByBsDate(2074,10, 15);', false);
+        log(calendarFunctions.getAdDateByBsDate(2074, 10, 15), true);
 
-        log('calenderFunctions.getBsMonthDays(2074, 10);', false);
-        log(calenderFunctions.getBsMonthDays(2074, 10), true);
+        log('calendarFunctions.getBsMonthDays(2074, 10);', false);
+        log(calendarFunctions.getBsMonthDays(2074, 10), true);
 
-        log('calenderFunctions.getBsDateByAdDate(2017, 2, 15);', false);
-        log(calenderFunctions.getBsDateByAdDate(2017, 2, 15), true);
+        log('calendarFunctions.getBsDateByAdDate(2017, 2, 15);', false);
+        log(calendarFunctions.getBsDateByAdDate(2017, 2, 15), true);
 
-        log('calenderFunctions.getBsYearByAdDate(2017, 2, 15);', false);
-        log(calenderFunctions.getBsYearByAdDate(2017, 2, 15), true);
+        log('calendarFunctions.getBsYearByAdDate(2017, 2, 15);', false);
+        log(calendarFunctions.getBsYearByAdDate(2017, 2, 15), true);
 
-        log('calenderFunctions.getBsMonthByAdDate(2017, 2, 15);', false);
-        log(calenderFunctions.getBsMonthByAdDate(2017, 2, 15), true);
+        log('calendarFunctions.getBsMonthByAdDate(2017, 2, 15);', false);
+        log(calendarFunctions.getBsMonthByAdDate(2017, 2, 15), true);
 
-        log('calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9);', false);
-        log(calenderFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9), true);
+        log('calendarFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9);', false);
+        log(calendarFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9), true);
 
-        log('calenderFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध");', false);
-        log(calenderFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध"), true);
+        log('calendarFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध");', false);
+        log(calendarFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध"), true);
     }
 
     preview();
