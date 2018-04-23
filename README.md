@@ -26,12 +26,13 @@ $ bower install nepali-date-picker --save`
 ### Usage
 
 - Include `jquery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+- You can use the library direct from `dist` or use a CDN like [unpkg](https://unpkg.com).
 
 ```html
 <!-- this should go after your </body> -->
-<script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="dist/jquery.nepaliDatePicker.min.js"></script>
-<link rel="stylesheet" href="dist/nepaliDatePicker.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.0/dist/jquery.nepaliDatePicker.min.js" integrity="sha384-bBN6UZ/L0DswJczUYcUXb9lwIfAnJSGWjU3S0W5+IlyrjK0geKO+7chJ7RlOtrrF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css" integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
 ```
 
 - HTML
