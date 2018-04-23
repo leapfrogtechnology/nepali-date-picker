@@ -1,4 +1,5 @@
 # Nepali-Date-Picker
+
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Download Count][download-url]][npm-url]
@@ -25,7 +26,18 @@ $ bower install nepali-date-picker --save`
 
 ### Usage
 
-- Include `jquery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+Include `jquery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+
+**CDN (recommended)**
+
+```html
+<!-- this should go after your </body> -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.0/dist/jquery.nepaliDatePicker.min.js" integrity="sha384-bBN6UZ/L0DswJczUYcUXb9lwIfAnJSGWjU3S0W5+IlyrjK0geKO+7chJ7RlOtrrF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css" integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
+```
+
+**Alternatively,**
 
 ```html
 <!-- this should go after your </body> -->
@@ -34,13 +46,13 @@ $ bower install nepali-date-picker --save`
 <link rel="stylesheet" href="dist/nepaliDatePicker.min.css">
 ```
 
-- HTML
+**Input Element**
 
-``` html
+```html
 <input type="text" value="" name="date" class="date-picker">
 ```
 
-- JavaScript
+**Initialize Date Picker**
 
 ```javascript
 $(".date-picker").nepaliDatePicker({
@@ -51,7 +63,7 @@ $(".date-picker").nepaliDatePicker({
 });
 ```
 
-- Documentation
+**Documentation**
 
 > https://nepali-date-picker.herokuapp.com/demo/
 
