@@ -34,14 +34,14 @@
                 <fieldset class="code">
                     <legend>Js Code</legend>
                     <pre>
-                    $(".bod-picker").nepaliDatePicker({
-                        dateFormat: "%D, %M %d, %y",
-                        closeOnDateSelect: true
-                    });
+$(".bod-picker").nepaliDatePicker({
+    dateFormat: "%D, %M %d, %y",
+    closeOnDateSelect: true
+});
 
-                    $("#clear-bth").on("click", function(event) {
-                        $(".bod-picker").val('');
-                    });
+$("#clear-bth").on("click", function(event) {
+    $(".bod-picker").val('');
+});
                 </pre>
                 </fieldset>
             </div>
@@ -183,23 +183,23 @@
                 <fieldset class="code">
                     <legend>JS Code</legend>
                     <pre>
-                    var currentDate = new Date();
-                    var currentNepaliDate = calendarFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
-                    var formatedNepaliDate = calendarFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
-                    $("#from-picker").nepaliDatePicker({
-                        dateFormat: "%y-%m-%d",
-                        closeOnDateSelect: true,
-                        minDate: "२०७०-१-२०",
-                        maxDate: formatedNepaliDate
-                    });
+var currentDate = new Date();
+var currentNepaliDate = calendarFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+var formatedNepaliDate = calendarFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
+$("#from-picker").nepaliDatePicker({
+    dateFormat: "%y-%m-%d",
+    closeOnDateSelect: true,
+    minDate: "२०७०-१-२०",
+    maxDate: formatedNepaliDate
+});
 
-                    $("#to-picker").val(formatedNepaliDate);
-                    $("#to-picker").nepaliDatePicker({
-                        dateFormat: "%y-%m-%d",
-                        closeOnDateSelect: true,
-                        minDate: "२०७०-१-२०",
-                        maxDate: formatedNepaliDate
-                    });
+$("#to-picker").val(formatedNepaliDate);
+$("#to-picker").nepaliDatePicker({
+    dateFormat: "%y-%m-%d",
+    closeOnDateSelect: true,
+    minDate: "२०७०-१-२०",
+    maxDate: formatedNepaliDate
+});
                 </pre>
                 </fieldset>
             </div>
@@ -290,43 +290,43 @@
                 <fieldset class="code">
                     <legend>Js Code</legend>
                     <pre>
-                    $("#date-picker").nepaliDatePicker({
-                        dateFormat: "%y-%m-%d",
-                        closeOnDateSelect: true
-                    });
+$("#date-picker").nepaliDatePicker({
+    dateFormat: "%y-%m-%d",
+    closeOnDateSelect: true
+});
 
-                    function eventLog(event){
-                        var datePickerData = event.datePickerData;
-                        var outputData = {
-                            "type": event.type,
-                            "message": event.message,
-                            "datePickerData": datePickerData
-                        };
+function eventLog(event){
+    var datePickerData = event.datePickerData;
+    var outputData = {
+        "type": event.type,
+        "message": event.message,
+        "datePickerData": datePickerData
+    };
 
-                        var output = '&lt;p&gt;&lt;code&gt;&blacktriangleright; ' + JSON.stringify(outputData) + '&lt;/code&gt;&lt;/p&gt;';
-                        $('.output').append(output);
-                    }
+    var output = '&lt;p&gt;&lt;code&gt;&blacktriangleright; ' + JSON.stringify(outputData) + '&lt;/code&gt;&lt;/p&gt;';
+    $('.output').append(output);
+}
 
-                    $("#date-picker").on("show", function (event) {
-                        var output = '&lt;p&gt;&lt;code&gt;&blacktriangleright; Show event trigger&lt;/code&gt;&lt;/p&gt;';
-                        $('.output').append(output);
-                    });
+$("#date-picker").on("show", function (event) {
+    var output = '&lt;p&gt;&lt;code&gt;&blacktriangleright; Show event trigger&lt;/code&gt;&lt;/p&gt;';
+    $('.output').append(output);
+});
 
-                    $("#date-picker").on("yearChange", function (event) {
-                        eventLog(event);
-                    });
+$("#date-picker").on("yearChange", function (event) {
+    eventLog(event);
+});
 
-                    $("#date-picker").on("monthChange", function (event) {
-                        eventLog(event);
-                    });
+$("#date-picker").on("monthChange", function (event) {
+    eventLog(event);
+});
 
-                    $("#date-picker").on("dateChange", function (event) {
-                        eventLog(event);
-                    });
+$("#date-picker").on("dateChange", function (event) {
+    eventLog(event);
+});
 
-                    $("#date-picker").on("dateSelect", function (event) {
-                        eventLog(event);
-                    });
+$("#date-picker").on("dateSelect", function (event) {
+    eventLog(event);
+});
                 </pre>
                 </fieldset>
             </div>
