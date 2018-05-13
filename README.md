@@ -21,7 +21,7 @@ $ npm install nepali-date-picker
 **Bower**
 
 ```bash
-$ bower install nepali-date-picker --save`
+$ bower install nepali-date-picker --save
 ```
 
 ### Usage
