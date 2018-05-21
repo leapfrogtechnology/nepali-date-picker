@@ -469,6 +469,9 @@ var calendarFunctions = {};
                         "left": inputFieldPosition.left
                     });
 
+                    if ($element.val()) {
+                        datePickerPlugin.renderFormattedSpecificDateCalendar($nepaliDatePicker, datePickerPlugin.options.dateFormat, $element.val());
+                    }
                     $nepaliDatePicker.show();
                     datePickerPlugin.eventFire($element, $nepaliDatePicker, "show");
 
