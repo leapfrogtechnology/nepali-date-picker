@@ -308,6 +308,7 @@ var calendarFunctions = {};
 
             var bsYear = adYear + 57;
             var bsMonth = (adMonth + 9 ) % 12;
+            bsMonth = bsMonth === 0 ? 12 : bsMonth;
             var bsDate = 1;
 
             if (adMonth < 4) {
