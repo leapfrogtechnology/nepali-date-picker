@@ -436,6 +436,20 @@ var calendarFunctions = {};
                 yearEnd: calendarData.maxBsYear
             }, options),
             init: function ($element) {
+                //adding today as an option for start and end date
+                var currentDate= new Date();
+                var currentNepaliDate = calendarFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
+                var today_date = calendarFunctions.bsDateFormat(datePickerPlugin.options.dateFormat, currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
+                
+                if(datePickerPlugin.options.minDate=="today")
+                {
+                    datePickerPlugin.options.minDate=today_date;
+                }
+                if(datePickerPlugin.options.maxDate=="today")
+                {
+                    datePickerPlugin.options.maxDate=today_date;
+                }
+                //end of adding today as an option for start and end date
                 $element.prop("readonly", true);
                 var $nepaliDatePicker = $('<div class="nepali-date-picker">');
                 $('body').append($nepaliDatePicker);
