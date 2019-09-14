@@ -63,6 +63,15 @@ $(".date-picker").nepaliDatePicker({
 });
 ```
 
+```javascript
+$(".date-picker").nepaliDatePicker({
+    dateFormat: "%D, %M %d, %y",
+    closeOnDateSelect: true,
+    minDate : "today",
+    maxDate : "today"
+});
+```
+
 **Documentation**
 
 > https://nepali-date-picker.herokuapp.com/demo/
