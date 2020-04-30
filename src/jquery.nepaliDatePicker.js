@@ -330,8 +330,8 @@ var calendarFunctions = {};
                 bsDate = adDate - bsMonthFirstAdDate.getDate() + 1;
             }
 
-             //Check Leap year, add 1 day only for the month of April
-            if (adMonth === 4 && ((adYear % 4 === 0) && (adYear % 100 !== 0)) || (adYear % 400 === 0) ) {
+             //Check Leap year, add 1 day only for the month of April, Before year change
+            if (adMonth === 4 && bsMonth === 12 && ((adYear % 4 === 0) && (adYear % 100 !== 0)) || (adYear % 400 === 0) ) {
                 bsDate += 1
             }
 
