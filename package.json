@@ -2,7 +2,7 @@
   "name": "nepali-date-picker",
   "version": "2.0.1",
   "description": "Nepali Date Picker jQuery Plugin",
-  "main": "nepaliDatePicker.js",
+  "main": "dist/nepaliDatePicker.min.js",
   "homepage": "https://github.com/leapfrogtechnology/nepali-date-picker",
   "repository": {
     "type": "git",
