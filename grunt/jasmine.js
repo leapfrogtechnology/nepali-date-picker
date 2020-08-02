@@ -6,7 +6,7 @@
  * @type {{src: string[], options: {specs: string[]}}}
  */
 module.exports = {
-    src : ['bower_components/jquery/dist/jquery.js', 'bower_components/jasmine-expect/dist/jasmine-matchers.js' ,'src/*.js'],
+    src : ['node_modules/jquery/dist/jquery.js', 'node_modules/jasmine-expect/dist/jasmine-matchers.js' ,'src/*.js'],
     options : {
         specs : ['test/*.js']
     }
