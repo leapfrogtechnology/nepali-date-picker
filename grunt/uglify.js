@@ -1,7 +1,7 @@
 module.exports = {
     staticMappings: {
         files: [
-            {src: 'src/jquery.nepaliDatePicker.js', dest: 'dist/jquery.nepaliDatePicker.min.js'}
+            {src: 'src/nepaliDatePicker.js', dest: 'dist/nepaliDatePicker.min.js'}
         ],
         options: {
             report: 'min',
