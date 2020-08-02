@@ -1,4 +1,4 @@
-# Nepali-Date-Picker
+# Nepali Date Picker
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -24,9 +24,13 @@ $ npm install nepali-date-picker
 $ bower install nepali-date-picker --save
 ```
 
+### Demo
+
+> https://nepali-date-picker.herokuapp.com/demo/
+
 ### Usage
 
-Include `jquery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+Include `jQuery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
 
 **CDN (recommended)**
 
@@ -90,11 +94,3 @@ $ grunt update
   ```bash
   $ npm test
   ```
-
-### Demo
-
-> https://nepali-date-picker.herokuapp.com/demo/
-
-### Travis CI
-
-> https://travis-ci.org/leapfrogtechnology/Nepali-Date-Picker
