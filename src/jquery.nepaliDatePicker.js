@@ -321,12 +321,18 @@ var calendarFunctions = {};
             }
 
             var bsMonthFirstAdDate = calendarFunctions.getAdDateByBsDate(bsYear, bsMonth, 1);
+                      
             if (adDate >= 1 && adDate < bsMonthFirstAdDate.getDate()) {
                 bsMonth = (bsMonth !== 1) ? bsMonth - 1 : 12;
                 var bsMonthDays = calendarFunctions.getBsMonthDays(bsYear, bsMonth);
                 bsDate = bsMonthDays - (bsMonthFirstAdDate.getDate() - adDate) + 1;
             } else {
                 bsDate = adDate - bsMonthFirstAdDate.getDate() + 1;
+            }
+
+             //Check Leap year, add 1 day only for the month of April, Before year change
+            if (adMonth === 4 && bsMonth === 12 && ((adYear % 4 === 0) && (adYear % 100 !== 0)) || (adYear % 400 === 0) ) {
+                bsDate += 1
             }
 
             return {
