@@ -30,15 +30,15 @@ $ bower install nepali-date-picker --save
 
 ### Usage
 
-Include `jQuery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
+Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
 
 **CDN (recommended)**
 
 ```html
 <!-- this should go after your </body> -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.0/dist/jquery.nepaliDatePicker.min.js" integrity="sha384-bBN6UZ/L0DswJczUYcUXb9lwIfAnJSGWjU3S0W5+IlyrjK0geKO+7chJ7RlOtrrF" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.0/dist/nepaliDatePicker.min.css" integrity="sha384-Fligaq3qH5qXDi+gnnhQctSqfMKJvH4U8DTA+XGemB/vv9AUHCwmlVR/B3Z4nE+q" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous">
 ```
 
 **Alternatively,**
@@ -46,7 +46,7 @@ Include `jQuery`, `jquery.nepaliDatePicker.min.js` and `nepaliDatePicker.min.css
 ```html
 <!-- this should go after your </body> -->
 <script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="dist/jquery.nepaliDatePicker.min.js"></script>
+<script type="text/javascript" src="dist/nepaliDatePicker.min.js"></script>
 <link rel="stylesheet" href="dist/nepaliDatePicker.min.css">
 ```
 
