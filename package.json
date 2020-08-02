@@ -13,9 +13,11 @@
   "keywords": [
     "nepal",
     "nepali",
-    "nepali date",
-    "date picker",
-    "nepali date picker"
+    "calendar",
+    "datepicker",
+    "nepali-date",
+    "nepali-calendar",
+    "nepali-date-picker"
   ],
   "ignore": [
     "bower_components"
@@ -24,10 +26,10 @@
   "dependencies": {
     "jquery": ">= 1.11.1"
   },
-  "homepage": "https://github.com/leapfrogtechnology/Nepali-Date-Picker",
+  "homepage": "https://github.com/leapfrogtechnology/nepali-date-picker",
   "repository": {
     "type": "git",
-    "url": "git@github.com:leapfrogtechnology/Nepali-Date-Picker.git"
+    "url": "git@github.com:leapfrogtechnology/nepali-date-picker.git"
   },
   "devDependencies": {
     "grunt": ">=1.0.1",
