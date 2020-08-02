@@ -83,14 +83,14 @@ $ bower install
 $ grunt update
 ```
 
- ### Minify JavaScript & CSS (Build)
+### Minify JavaScript & CSS (Build)
 
- ```bash
- $ npm run build
- ```
+```bash
+$ npm run build
+```
 
- ### Tests
+### Tests
 
-  ```bash
-  $ npm test
-  ```
+```bash
+$ npm test
+```
