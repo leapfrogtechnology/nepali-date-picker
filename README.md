@@ -37,8 +37,8 @@ Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in yo
 ```html
 <!-- this should go after your </body> -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous">
+<script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
 ```
 
 **Alternatively,**
@@ -47,23 +47,23 @@ Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in yo
 <!-- this should go after your </body> -->
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="dist/nepaliDatePicker.min.js"></script>
-<link rel="stylesheet" href="dist/nepaliDatePicker.min.css">
+<link rel="stylesheet" href="dist/nepaliDatePicker.min.css" />
 ```
 
 **Input Element**
 
 ```html
-<input type="text" value="" name="date" class="date-picker">
+<input type="text" value="" name="date" class="date-picker" />
 ```
 
 **Initialize Date Picker**
 
 ```javascript
-$(".date-picker").nepaliDatePicker({
-    dateFormat: "%D, %M %d, %y",
-    closeOnDateSelect: true,
-    minDate : "सोम, जेठ १०, २०७३",
-    maxDate : "मंगल, जेठ ३२, २०७३"
+$('.date-picker').nepaliDatePicker({
+  dateFormat: '%D, %M %d, %y',
+  closeOnDateSelect: true,
+  minDate: 'सोम, जेठ १०, २०७३',
+  maxDate: 'मंगल, जेठ ३२, २०७३'
 });
 ```
 

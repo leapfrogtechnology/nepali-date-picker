@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-    <link rel="stylesheet" href="./demo.css">
-    <link rel="stylesheet" href="../src/nepaliDatePicker.css">
-</head>
+    <link rel="stylesheet" href="./demo.css" />
+    <link rel="stylesheet" href="../dist/nepaliDatePicker.min.css" />
+  </head>
 
-<body>
+  <body>
     <div class="main-wrapper">
-        <h2>Demo & Documentation</h2>
-        <div class="container">
-            <h3>
-                <u>How to use it?</u>
-            </h3>
-            <div class="code-wrapper">
-                <fieldset class="code">
-                    <legend>HTML Code</legend>
-                    <pre>
+      <h2>Demo & Documentation</h2>
+      <div class="container">
+        <h3>
+          <u>How to use it?</u>
+        </h3>
+        <div class="code-wrapper">
+          <fieldset class="code">
+            <legend>HTML Code</legend>
+            <pre>
 &lt;p&gt;
     &lt;label>DOB: &lt;/label&gt;
     &lt;input type="text" value="" name="date" class="bod-picker" placeholder="Select Date of Birth"&gt;
@@ -30,10 +29,10 @@
 &lt;script type="text/javascript" src="dist/nepaliDatePicker.min.js"&gt; &lt;/script&gt;
 &lt;link rel="stylesheet" href="dist/nepaliDatePicker.min.css"&gt;
                 </pre>
-                </fieldset>
-                <fieldset class="code">
-                    <legend>Js Code</legend>
-                    <pre>
+          </fieldset>
+          <fieldset class="code">
+            <legend>Js Code</legend>
+            <pre>
 $(".bod-picker").nepaliDatePicker({
     dateFormat: "%D, %M %d, %y",
     closeOnDateSelect: true
@@ -42,134 +41,133 @@ $(".bod-picker").nepaliDatePicker({
 $("#clear-bth").on("click", function(event) {
     $(".bod-picker").val('');
 });
-                </pre>
-                </fieldset>
-            </div>
-            <div class="demo-wrapper">
-                <fieldset class="demo fix-height">
-                    <legend>Demo</legend>
-                    <p>
-                        <label>DOB: </label>
-                        <input type="text" value="" name="date" class="bod-picker" placeholder="Select Date of Birth">
-                        <button id="clear-bth" onclick="">Clear</button>
-                    </p>
-                </fieldset>
-
-            </div>
+                </pre
+            >
+          </fieldset>
         </div>
-        <div class="container">
-            <h3>
-                <u>Options</u>
-            </h3>
-            <table>
-                <thead>
-                    <tr>
-                        <td>
-                            Option
-                        </td>
-                        <td>
-                            Data Type
-                        </td>
-                        <td>
-                            Description
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            closeOnDateSelect
-                        </td>
-                        <td>
-                            Boolean
-                            <br/>
-                            <span class="comment">Default value : true</span>
-                        </td>
-                        <td>
-                            Enable/disable close date picker on date select.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            dateFormat
-                        </td>
-                        <td>
-                            String
-                            <br/>
-                            <span class="comment">Default value : "%D, %M %d, %y"</span>
-                        </td>
-                        <td>
-                            Set det format.
-                            <br/>
-                            <span class="comment">dateFormat: "
-                                <i>%D, %M %d, %y</i>"</span>
-                            <br/>
-                            <span class="comment">dateFormated output: बिही, फागुन १०, २०७४</span>
-                            <ul>
-                                <li>
-                                    %d : date
-                                    <br/>
-                                    <span class="comment">१, १२, ...</span>
-                                </li>
-                                <li>
-                                    %D : Week day name
-                                    <br/>
-                                    <span class="comment">आईत, सोम, ...</span>
-                                </li>
-                                <li>
-                                    %m : Nepali month
-                                    <br/>
-                                    <span class="comment">१, ५, ...</span>
-                                </li>
-                                <li>
-                                    %M : Month name
-                                    <br/>
-                                    <span class="comment">बैशाख, जेठ, असार, ...</span>
-                                </li>
-                                <li>
-                                    %y : Year
-                                    <br/>
-                                    <span class="comment">२०७४, ...</span>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            minDate
-                        </td>
-                        <td>
-                            String
-                        </td>
-                        <td>
-                            Set min date select range.
-                            <br/>
-                            <span class="comment">"सोम, जेठ १०, २०७३"</span>
-                            <br/>
-                            <b>Note</b>: Date should be formated as dateFormat option provided
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            maxDate
-                        </td>
-                        <td>
-                            String
-                        </td>
-                        <td>
-                            Set max date select range.
-                            <br/>
-                            <span class="comment">"मंगल, जेठ ३२, २०७३"</span>
-                            <br/>
-                            <b>Note</b>: Date should be formated as dateFormat option provided
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="code-wrapper">
-                <fieldset class="code">
-                    <legend>HTML Code</legend>
-                    <pre>
+        <div class="demo-wrapper">
+          <fieldset class="demo fix-height">
+            <legend>Demo</legend>
+            <p>
+              <label>DOB: </label>
+              <input type="text" value="" name="date" class="bod-picker" placeholder="Select Date of Birth" />
+              <button id="clear-bth" onclick="">Clear</button>
+            </p>
+          </fieldset>
+        </div>
+      </div>
+      <div class="container">
+        <h3>
+          <u>Options</u>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <td>
+                Option
+              </td>
+              <td>
+                Data Type
+              </td>
+              <td>
+                Description
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                closeOnDateSelect
+              </td>
+              <td>
+                Boolean
+                <br />
+                <span class="comment">Default value : true</span>
+              </td>
+              <td>
+                Enable/disable close date picker on date select.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                dateFormat
+              </td>
+              <td>
+                String
+                <br />
+                <span class="comment">Default value : "%D, %M %d, %y"</span>
+              </td>
+              <td>
+                Set det format.
+                <br />
+                <span class="comment">dateFormat: " <i>%D, %M %d, %y</i>"</span>
+                <br />
+                <span class="comment">dateFormated output: बिही, फागुन १०, २०७४</span>
+                <ul>
+                  <li>
+                    %d : date
+                    <br />
+                    <span class="comment">१, १२, ...</span>
+                  </li>
+                  <li>
+                    %D : Week day name
+                    <br />
+                    <span class="comment">आईत, सोम, ...</span>
+                  </li>
+                  <li>
+                    %m : Nepali month
+                    <br />
+                    <span class="comment">१, ५, ...</span>
+                  </li>
+                  <li>
+                    %M : Month name
+                    <br />
+                    <span class="comment">बैशाख, जेठ, असार, ...</span>
+                  </li>
+                  <li>
+                    %y : Year
+                    <br />
+                    <span class="comment">२०७४, ...</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                minDate
+              </td>
+              <td>
+                String
+              </td>
+              <td>
+                Set min date select range.
+                <br />
+                <span class="comment">"सोम, जेठ १०, २०७३"</span>
+                <br />
+                <b>Note</b>: Date should be formated as dateFormat option provided
+              </td>
+            </tr>
+            <tr>
+              <td>
+                maxDate
+              </td>
+              <td>
+                String
+              </td>
+              <td>
+                Set max date select range.
+                <br />
+                <span class="comment">"मंगल, जेठ ३२, २०७३"</span>
+                <br />
+                <b>Note</b>: Date should be formated as dateFormat option provided
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="code-wrapper">
+          <fieldset class="code">
+            <legend>HTML Code</legend>
+            <pre>
 &lt;p&gt;
     &lt;label>From Date: &lt;/label>
     &lt;input type="text" value="२०७३-२-२३" name="date" id="from-picker"&gt;
@@ -178,11 +176,12 @@ $("#clear-bth").on("click", function(event) {
     &lt;label>To Date: &lt;/label>
     &lt;input type="text" value="" name="date" id="to-picker"&gt;
 &lt;/p&gt;
-                </pre>
-                </fieldset>
-                <fieldset class="code">
-                    <legend>JS Code</legend>
-                    <pre>
+                </pre
+            >
+          </fieldset>
+          <fieldset class="code">
+            <legend>JS Code</legend>
+            <pre>
 var currentDate = new Date();
 var currentNepaliDate = calendarFunctions.getBsDateByAdDate(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate());
 var formatedNepaliDate = calendarFunctions.bsDateFormat("%y-%m-%d", currentNepaliDate.bsYear, currentNepaliDate.bsMonth, currentNepaliDate.bsDate);
@@ -200,96 +199,98 @@ $("#to-picker").nepaliDatePicker({
     minDate: "२०७०-१-२०",
     maxDate: formatedNepaliDate
 });
-                </pre>
-                </fieldset>
-            </div>
-            <div class="demo-wrapper">
-                <fieldset class="demo fix-height">
-                    <legend>Demo</legend>
-                    <p>
-                        <label>From Date: </label>
-                        <input type="text" value="२०७३-२-२३" name="date" id="from-picker">
-                    </p>
-                    <p>
-                        <label>To Date: </label>
-                        <input type="text" value="" name="date" id="to-picker">
-                    </p>
-                </fieldset>
-            </div>
+                </pre
+            >
+          </fieldset>
         </div>
+        <div class="demo-wrapper">
+          <fieldset class="demo fix-height">
+            <legend>Demo</legend>
+            <p>
+              <label>From Date: </label>
+              <input type="text" value="२०७३-२-२३" name="date" id="from-picker" />
+            </p>
+            <p>
+              <label>To Date: </label>
+              <input type="text" value="" name="date" id="to-picker" />
+            </p>
+          </fieldset>
+        </div>
+      </div>
 
-        <div class="container">
-            <h3>
-                <u>Event Handler:</u>
-            </h3>
-            <table>
-                <thead>
-                    <tr>
-                        <td>
-                            Event
-                        </td>
-                        <td>
-                            Description
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            show
-                        </td>
-                        <td>
-                            Event trigger on calendar show
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            dateSelect
-                        </td>
-                        <td>
-                            Event trigger on select date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            dateChange
-                        </td>
-                        <td>
-                            Event trigger on date change
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            yearChange
-                        </td>
-                        <td>
-                            Event trigger on year change
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            monthChange
-                        </td>
-                        <td>
-                            Event trigger on month change
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+      <div class="container">
+        <h3>
+          <u>Event Handler:</u>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <td>
+                Event
+              </td>
+              <td>
+                Description
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                show
+              </td>
+              <td>
+                Event trigger on calendar show
+              </td>
+            </tr>
+            <tr>
+              <td>
+                dateSelect
+              </td>
+              <td>
+                Event trigger on select date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                dateChange
+              </td>
+              <td>
+                Event trigger on date change
+              </td>
+            </tr>
+            <tr>
+              <td>
+                yearChange
+              </td>
+              <td>
+                Event trigger on year change
+              </td>
+            </tr>
+            <tr>
+              <td>
+                monthChange
+              </td>
+              <td>
+                Event trigger on month change
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-            <div class="code-wrapper">
-                <fieldset class="code">
-                    <legend>HTML Code</legend>
-                    <pre>
+        <div class="code-wrapper">
+          <fieldset class="code">
+            <legend>HTML Code</legend>
+            <pre>
                     &lt;p&gt;
                         &lt;label>Date: &lt;/label&gt;
                         &lt;input type="text" value="" name="date" id="date-picker" placeholder="Select Date"&gt;
                     &lt;/p&gt;
-                </pre>
-                </fieldset>
-                <fieldset class="code">
-                    <legend>Js Code</legend>
-                    <pre>
+                </pre
+            >
+          </fieldset>
+          <fieldset class="code">
+            <legend>Js Code</legend>
+            <pre>
 $("#date-picker").nepaliDatePicker({
     dateFormat: "%y-%m-%d",
     closeOnDateSelect: true
@@ -327,124 +328,123 @@ $("#date-picker").on("dateChange", function (event) {
 $("#date-picker").on("dateSelect", function (event) {
     eventLog(event);
 });
-                </pre>
-                </fieldset>
-            </div>
-            <div class="demo-wrapper">
-                <fieldset class="demo fix-height">
-                    <legend>Demo</legend>
-                    <p>
-                        <label>Date: </label>
-                        <input type="text" value="" name="date" id="date-picker" placeholder="Select Date">
-                    </p>
-                </fieldset>
-            </div>
-            <fieldset class="demo">
-                <legend>Output</legend>
-                <div class="output"></div>
-            </fieldset>
+                </pre
+            >
+          </fieldset>
         </div>
-
-        <div class="container">
-            <h3>
-                <u>API:</u>
-            </h3>
+        <div class="demo-wrapper">
+          <fieldset class="demo fix-height">
+            <legend>Demo</legend>
             <p>
-                <ul>
-                    <li>
-                        Global variable
-                        <i>calendarFunctions</i>
-                    </li>
-                    <li>
-                        Month start form 0 index
-                        <br/>
-                        <span class="comment">1: January | बैशाख</span>
-                        <br/>
-                        <span class="comment">12: December | चैत</span>
-                        <br/>
-                    </li>
-                    <li>
-                        Week Day start form 0 index
-                        <br/>
-                        <span class="comment">1: Sunday | आईत</span>
-                        <br/>
-                        <span class="comment">7: Saturday | शनि</span>
-                        <br/>
-                    </li>
-                </ul>
+              <label>Date: </label>
+              <input type="text" value="" name="date" id="date-picker" placeholder="Select Date" />
             </p>
-            <table>
-                <thead>
-                    <tr>
-                        <td>
-                            Function
-                        </td>
-                        <td>
-                            Parameter
-                        </td>
-                        <td>
-                            Description
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            getNepaliNumber(number)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} number
-                                </li>
-                                <li>
-                                    @returns {String}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return equivalent number in nepaliNumber
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getNumberByNepaliNumber(nepaliNumber)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {String} nepaliNumber
-                                </li>
-                                <li>
-                                    @returns {Integer}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return equivalent number from nepaliNumber
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate, dateFormatPattern)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} bsYear
-                                </li>
-                                <li>
-                                    @param {Number} bsMonth
-                                </li>
-                                <li>
-                                    @param {Number} bsDate
-                                </li>
-                                <li>
-                                    @param {String} dateFormatPattern
-                                </li>
-                                <li>
-                                    @returns
-                                    <pre>
+          </fieldset>
+        </div>
+        <fieldset class="demo">
+          <legend>Output</legend>
+          <div class="output"></div>
+        </fieldset>
+      </div>
+
+      <div class="container">
+        <h3>
+          <u>API:</u>
+        </h3>
+        <ul>
+          <li>
+            Global variable
+            <i>calendarFunctions</i>
+          </li>
+          <li>
+            Month start form 0 index
+            <br />
+            <span class="comment">1: January | बैशाख</span>
+            <br />
+            <span class="comment">12: December | चैत</span>
+            <br />
+          </li>
+          <li>
+            Week Day start form 0 index
+            <br />
+            <span class="comment">1: Sunday | आईत</span>
+            <br />
+            <span class="comment">7: Saturday | शनि</span>
+            <br />
+          </li>
+        </ul>
+        <table>
+          <thead>
+            <tr>
+              <td>
+                Function
+              </td>
+              <td>
+                Parameter
+              </td>
+              <td>
+                Description
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                getNepaliNumber(number)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} number
+                  </li>
+                  <li>
+                    @returns {String}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return equivalent number in nepaliNumber
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getNumberByNepaliNumber(nepaliNumber)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {String} nepaliNumber
+                  </li>
+                  <li>
+                    @returns {Integer}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return equivalent number from nepaliNumber
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate, dateFormatPattern)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} bsYear
+                  </li>
+                  <li>
+                    @param {Number} bsMonth
+                  </li>
+                  <li>
+                    @param {Number} bsDate
+                  </li>
+                  <li>
+                    @param {String} dateFormatPattern
+                  </li>
+                  <li>
+                    @returns
+                    <pre>
                                 <small>
                                     {
                                         adDate : DateObject,
@@ -458,76 +458,76 @@ $("#date-picker").on("dateSelect", function (event) {
                                     }
                                 </small>
                             </pre>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return Bs month data
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getAdDateByBsDate(bsYear, bsMonth, BsDate)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} bsYear
-                                </li>
-                                <li>
-                                    @param {Number} bsMonth
-                                </li>
-                                <li>
-                                    @param {Number} BsDate
-                                </li>
-                                <li>
-                                    @return {DateObject}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return corresponding Ad date by Bs date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getBsMonthDays(bsYear, bsMonth)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} bsYear
-                                </li>
-                                <li>
-                                    @param {Number} bsMonth
-                                </li>
-                                <li>
-                                    @returns {Number}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return number of days in bsMonth
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getBsDateByAdDate(adYear, adMonth, adDate)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} adYear
-                                </li>
-                                <li>
-                                    @param {Number} adMonth
-                                </li>
-                                <li>
-                                    @param {Number} adDate
-                                </li>
-                                <li>
-                                    @returns
-                                    <pre>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return Bs month data
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getAdDateByBsDate(bsYear, bsMonth, BsDate)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} bsYear
+                  </li>
+                  <li>
+                    @param {Number} bsMonth
+                  </li>
+                  <li>
+                    @param {Number} BsDate
+                  </li>
+                  <li>
+                    @return {DateObject}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return corresponding Ad date by Bs date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getBsMonthDays(bsYear, bsMonth)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} bsYear
+                  </li>
+                  <li>
+                    @param {Number} bsMonth
+                  </li>
+                  <li>
+                    @returns {Number}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return number of days in bsMonth
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getBsDateByAdDate(adYear, adMonth, adDate)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} adYear
+                  </li>
+                  <li>
+                    @param {Number} adMonth
+                  </li>
+                  <li>
+                    @param {Number} adDate
+                  </li>
+                  <li>
+                    @returns
+                    <pre>
                                 <small>
 {
     bsYear : Number,
@@ -536,106 +536,106 @@ $("#date-picker").on("dateSelect", function (event) {
 }
                             </small>
                         </pre>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return corresponding Bs date data by Ad date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getBsYearByAdDate(adYear, adMonth, adDate)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} adYear
-                                </li>
-                                <li>
-                                    @param {Number} adMonth
-                                </li>
-                                <li>
-                                    @param {Number} adDate
-                                </li>
-                                <li>
-                                    @return {Number}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return corresponding Bs year by Ad date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            getBsMonthByAdDate(adYear, adMonth, adDate)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {Number} adYear
-                                </li>
-                                <li>
-                                    @param {Number} adMonth
-                                </li>
-                                <li>
-                                    @param {Number} adDate
-                                </li>
-                                <li>
-                                    @return {Number}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return corresponding Bs month by Ad date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            bsDateFormat(dateFormatPattern, bsYear, bsMonth, bsDate, day)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {String} dateFormatPattern
-                                </li>
-                                <li>
-                                    @param {Number} adYear
-                                </li>
-                                <li>
-                                    @param {Number} adMonth
-                                </li>
-                                <li>
-                                    @param {Number} adDate
-                                </li>
-                                <li>
-                                    @param {Number} day
-                                </li>
-                                <li>
-                                    @return {String}
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Return formated Bs date
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            parseFormattedBsDate(dateFormat, dateFormattedText)
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    @param {String} dateFormat
-                                </li>
-                                <li>
-                                    @param {String} dateFormattedText
-                                </li>
-                                <li>
-                                    @return
-                                    <pre>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return corresponding Bs date data by Ad date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getBsYearByAdDate(adYear, adMonth, adDate)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} adYear
+                  </li>
+                  <li>
+                    @param {Number} adMonth
+                  </li>
+                  <li>
+                    @param {Number} adDate
+                  </li>
+                  <li>
+                    @return {Number}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return corresponding Bs year by Ad date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                getBsMonthByAdDate(adYear, adMonth, adDate)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {Number} adYear
+                  </li>
+                  <li>
+                    @param {Number} adMonth
+                  </li>
+                  <li>
+                    @param {Number} adDate
+                  </li>
+                  <li>
+                    @return {Number}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return corresponding Bs month by Ad date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                bsDateFormat(dateFormatPattern, bsYear, bsMonth, bsDate, day)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {String} dateFormatPattern
+                  </li>
+                  <li>
+                    @param {Number} adYear
+                  </li>
+                  <li>
+                    @param {Number} adMonth
+                  </li>
+                  <li>
+                    @param {Number} adDate
+                  </li>
+                  <li>
+                    @param {Number} day
+                  </li>
+                  <li>
+                    @return {String}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Return formated Bs date
+              </td>
+            </tr>
+            <tr>
+              <td>
+                parseFormattedBsDate(dateFormat, dateFormattedText)
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    @param {String} dateFormat
+                  </li>
+                  <li>
+                    @param {String} dateFormattedText
+                  </li>
+                  <li>
+                    @return
+                    <pre>
                                 <small>
 {
     bsYear : Number,
@@ -645,18 +645,18 @@ $("#date-picker").on("dateSelect", function (event) {
 }
                             </small>
                         </pre>
-                                </li>
-                            </ul>
-                        </td>
-                        <td>
-                            Parse formated date
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <fieldset class="code">
-                <legend>JS Code</legend>
-                <pre>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                Parse formated date
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <fieldset class="code">
+          <legend>JS Code</legend>
+          <pre>
     console.log(calendarFunctions.getNepaliNumber(125));
 
     console.log(calendarFunctions.getNumberByNepaliNumber("१२५"));
@@ -674,18 +674,18 @@ $("#date-picker").on("dateSelect", function (event) {
     console.log(calendarFunctions.bsDateFormat("%y %M, %d %D", 2074, 11, 9));
 
     console.log(calendarFunctions.parseFormattedBsDate("%y %M, %d %D", "२०७४ चैत, ९ बुध"));
-            </pre>
-            </fieldset>
-            <fieldset class="demo">
-                <legend>Output</legend>
-                <div class="preview"></div>
-            </fieldset>
-        </div>
+            </pre
+          >
+        </fieldset>
+        <fieldset class="demo">
+          <legend>Output</legend>
+          <div class="preview"></div>
+        </fieldset>
+      </div>
     </div>
 
     <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="../src/nepaliDatePicker.js"></script>
+    <script type="text/javascript" src="../dist/nepaliDatePicker.min.js"></script>
     <script type="text/javascript" src="demo.js"></script>
-</body>
-
+  </body>
 </html>

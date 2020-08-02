@@ -1,9 +1,7 @@
 module.exports = {
-    custom: {
-        files: {
-            'dist/nepaliDatePicker.min.css': [
-                'src/nepaliDatePicker.css'
-            ]
-        }
+  custom: {
+    files: {
+      'dist/nepaliDatePicker.min.css': ['src/nepaliDatePicker.css']
     }
+  }
 };

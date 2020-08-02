@@ -1,8 +1,8 @@
 module.exports = {
-    tasks: {
-        options: {
-            filter: 'exclude',
-            tasks: ['availabletasks', 'tasks']
-        }
+  tasks: {
+    options: {
+      filter: 'exclude',
+      tasks: ['availabletasks', 'tasks']
     }
+  }
 };
