@@ -9,7 +9,7 @@
     "build": "grunt build"
   },
   "main": "jquery.nepaliDatePicker.js",
-  "description": "Nepali date picker",
+  "description": "Nepali Date Picker jQuery Plugin",
   "keywords": [
     "nepal",
     "nepali",
