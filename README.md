@@ -10,7 +10,7 @@
 [npm-url]: https://npmjs.org/package/nepali-date-picker
 [download-url]: https://img.shields.io/npm/dt/nepali-date-picker.svg?style=flat-square
 
-### Installation
+## Installation
 
 **NPM**
 
@@ -24,7 +24,7 @@ $ npm install nepali-date-picker
 $ bower install nepali-date-picker --save
 ```
 
-### Demo
+### Demo and Documentation
 
 > https://nepali-date-picker.herokuapp.com/demo/
 
@@ -32,22 +32,11 @@ $ bower install nepali-date-picker --save
 
 Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
 
-**CDN (recommended)**
-
 ```html
 <!-- this should go after your </body> -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/jquery.nepaliDatePicker.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
-```
-
-**Alternatively,**
-
-```html
-<!-- this should go after your </body> -->
-<script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="dist/nepaliDatePicker.min.js"></script>
-<link rel="stylesheet" href="dist/nepaliDatePicker.min.css" />
 ```
 
 **Input Element**
@@ -66,10 +55,6 @@ $('.date-picker').nepaliDatePicker({
   maxDate: 'मंगल, जेठ ३२, २०७३'
 });
 ```
-
-**Documentation**
-
-> https://nepali-date-picker.herokuapp.com/demo/
 
 ## For Developers
 
