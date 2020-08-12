@@ -26,7 +26,7 @@ $ bower install nepali-date-picker --save
 
 ### Demo and Documentation
 
-> https://nepali-date-picker.herokuapp.com/demo/
+> https://leapfrogtechnology.github.io/nepali-date-picker/demo/
 
 ### Usage
 
