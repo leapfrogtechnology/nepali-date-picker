@@ -12,23 +12,15 @@
 
 ## Installation
 
-**NPM**
-
 ```bash
-$ npm install nepali-date-picker
+npm install nepali-date-picker
 ```
 
-**Bower**
-
-```bash
-$ bower install nepali-date-picker --save
-```
-
-### Demo and Documentation
+## Demo and Documentation
 
 > https://leapfrogtechnology.github.io/nepali-date-picker/demo/
 
-### Usage
+## Usage
 
 Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in your HTML.
 
@@ -39,13 +31,13 @@ Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in yo
 <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
 ```
 
-**Input Element**
+### Add Input Element
 
 ```html
 <input type="text" value="" name="date" class="date-picker" />
 ```
 
-**Initialize Date Picker**
+### Initialize Date Picker
 
 ```javascript
 $('.date-picker').nepaliDatePicker({
@@ -56,26 +48,23 @@ $('.date-picker').nepaliDatePicker({
 });
 ```
 
-## For Developers
+## Contributing
 
-### Installing Dependencies
+### Install
 
 ```bash
-$ npm install
-$ bower install
-
-# if you have installed grunt dependencies already
-$ grunt update
+npm install
+npm run update
 ```
 
-### Minify JavaScript & CSS (Build)
+### Build
 
 ```bash
-$ npm run build
+npm run build
 ```
 
-### Tests
+### Test
 
 ```bash
-$ npm test
+npm test
 ```
