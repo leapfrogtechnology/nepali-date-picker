@@ -10,6 +10,8 @@
 [npm-url]: https://npmjs.org/package/nepali-date-picker
 [download-url]: https://img.shields.io/npm/dt/nepali-date-picker.svg?style=flat-square
 
+Nepali Date Picker jQuery Plugin for everyone. 🇳🇵
+
 ## Installation
 
 ```bash
