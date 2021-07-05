@@ -907,16 +907,17 @@ var calendarFunctions = {};
 
       if (adMonth < 4) {
         bsYear -= 1;
-      } else if (adMonth === 4) {
-        var bsYearFirstAdDate = calendarFunctions.getAdDateByBsDate(bsYear, 1, 1);
-        if (adDate < bsYearFirstAdDate.getDate()) {
-          bsYear -= 1;
-        }
       }
 
       var bsMonthFirstAdDate = calendarFunctions.getAdDateByBsDate(bsYear, bsMonth, 1);
       if (adDate >= 1 && adDate < bsMonthFirstAdDate.getDate()) {
-        bsMonth = bsMonth !== 1 ? bsMonth - 1 : 12;
+        if (bsMonth === 1) {
+          bsMonth = 12;
+          bsYear -= 1;
+        } else {
+          bsMonth -= 1;
+        }
+         
         var bsMonthDays = calendarFunctions.getBsMonthDays(bsYear, bsMonth);
         bsDate = bsMonthDays - (bsMonthFirstAdDate.getDate() - adDate) + 1;
       } else {
