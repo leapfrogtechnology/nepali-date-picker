@@ -114,14 +114,29 @@ $("#clear-bth").on("click", function(event) {
                     <span class="comment">१, १२, ...</span>
                   </li>
                   <li>
+                    %0d : Date with leading zeros
+                    <br />
+                    <span class="comment">०१, १२, ...</span>
+                  </li>
+                  <li>
                     %D : Week day name
                     <br />
                     <span class="comment">आईत, सोम, ...</span>
                   </li>
                   <li>
+                    %l (lowercase 'L') : Week day full name
+                    <br />
+                    <span class="comment">आइतबार, सोमबार, ...</span>
+                  </li>
+                  <li>
                     %m : Nepali month
                     <br />
                     <span class="comment">१, ५, ...</span>
+                  </li>
+                  <li>
+                    %0m : Nepali month with leading zeros
+                    <br />
+                    <span class="comment">०१, ०५, ...</span>
                   </li>
                   <li>
                     %M : Month name
@@ -164,6 +179,27 @@ $("#clear-bth").on("click", function(event) {
                 <span class="comment">"मंगल, जेठ ३२, २०७३"</span>
                 <br />
                 <b>Note</b>: Date should be formatted as dateFormat option provided
+              </td>
+            </tr>
+            <tr>
+              <td>
+                locale
+              </td>
+              <td>
+                String
+                <br />
+                <span class="comment">Default value : "ne"</span>
+              </td>
+              <td>
+                <p>
+                  Sets localization for output value.
+                  <br />
+                  Options: ne, en
+                </p>
+                <span class="comment">
+                  Output of ne: "मंगल, जेठ ३२, २०७३"<br>
+                  Output of en: "Tue, Jestha 32, 2073"
+                </span>
               </td>
             </tr>
           </tbody>
@@ -212,7 +248,7 @@ $("#to-picker").nepaliDatePicker({
             <legend>Demo</legend>
             <p>
               <label>From Date: </label>
-              <input type="text" value="२०७३-२-२३" name="date" id="from-picker" />
+              <input type="text" value="२०७३-०२-२३" name="date" id="from-picker" />
             </p>
             <p>
               <label>To Date: </label>

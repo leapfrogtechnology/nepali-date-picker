@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 describe('Test: calendarFunctions.getNepaliNumber(number)', function () {
   it('Should return equivalent nepali number', function () {
     expect(calendarFunctions.getNepaliNumber(2072)).toBe('२०७२');

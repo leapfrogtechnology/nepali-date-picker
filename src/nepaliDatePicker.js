@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 /*
  * @fileOverview NepaliDatePicker - jQuery Plugin
  * @version 2.0.1
@@ -9,7 +10,11 @@ var calendarFunctions = {};
 (function ($) {
   var calendarData = {
     bsMonths: ['बैशाख', 'जेठ', 'असार', 'साउन', 'भदौ', 'असोज', 'कार्तिक', 'मंसिर', 'पौष', 'माघ', 'फागुन', 'चैत'],
+    bsMonthsEnglish: ['Baishakh','Jestha','Ashad','Sharwan','Bhadra','Ashwin','Kartik','Mangsir','Poush','Magh','Falgun','Chaitra'],
     bsDays: ['आइत', 'सोम', 'मंगल', 'बुध', 'बिही', 'शुक्र', 'शनि'],
+    bsDaysEnglish: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+    bsDaysFull: ['आइतबार','सोमबार','मंगलबार','बुधबार','बिहीबार','शुक्रबार','शनिबार'],
+    bsDaysFullEnglish: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
     nepaliNumbers: ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'],
     bsMonthUpperDays: [
       [30, 31],
@@ -677,6 +682,16 @@ var calendarFunctions = {};
 
   $.extend(calendarFunctions, {
     /**
+     * Checks if the english letter is number or not
+     * @param {String} char
+     * @returns {boolean}
+     */
+    isNumeric: function(char) {
+      if (typeof char != "string") return false; // we only process strings!  
+      return !isNaN(char) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+             !isNaN(parseFloat(char)); // ...and ensure strings of whitespace fail
+    },
+    /**
      * Return equivalent number in nepaliNumber
      * @param {Number} number
      * @returns {String} nepaliNumber
@@ -701,7 +716,7 @@ var calendarFunctions = {};
      * @param {String} nepaliNumber
      * @returns {Number} number
      */
-    getNumberByNepaliNumber: function (nepaliNumber) {
+    getNumberByNepaliNumber: function (nepaliNumber, allow_english=false) {
       if (typeof nepaliNumber === 'undefined') {
         throw new Error('Parameter nepaliNumber is required');
       } else if (typeof nepaliNumber !== 'string') {
@@ -711,15 +726,24 @@ var calendarFunctions = {};
       var number = 0;
       for (var i = 0; i < nepaliNumber.length; i++) {
         var numIndex = calendarData.nepaliNumbers.indexOf(nepaliNumber.charAt(i));
-        if (numIndex === -1) {
+        if (numIndex === -1 && !allow_english) {
+          // raise nepali number exception (only if english number are not allowed)
           throw new Error('Invalid nepali number');
+        }else if(numIndex === -1 && !this.isNumeric(nepaliNumber.charAt(i))){
+          // raise number exception if char is not number
+          throw new Error('Invalid number');
+        }else if(numIndex === -1){
+          // handling english digit
+          number = number * 10 + parseInt(nepaliNumber.charAt(i));
+        }else{
+          // adding nepali digit
+          number = number * 10 + numIndex;
         }
-        number = number * 10 + numIndex;
       }
 
       return number;
     },
-    getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern) {
+    getBsMonthInfoByBsDate: function (bsYear, bsMonth, bsDate, dateFormatPattern, locale='ne') {
       validationFunctions.validateRequiredParameters({
         bsYear: bsYear,
         bsMonth: bsMonth,
@@ -747,7 +771,7 @@ var calendarFunctions = {};
       bsDate = bsDate > bsMonthDays ? bsMonthDays : bsDate;
       var eqAdDate = calendarFunctions.getAdDateByBsDate(bsYear, bsMonth, bsDate);
       var weekDay = eqAdDate.getDay() + 1;
-      var formattedDate = calendarFunctions.bsDateFormat(dateFormatPattern, bsYear, bsMonth, bsDate);
+      var formattedDate = calendarFunctions.bsDateFormat(dateFormatPattern, bsYear, bsMonth, bsDate, locale);
       return {
         bsYear: bsYear,
         bsMonth: bsMonth,
@@ -955,7 +979,7 @@ var calendarFunctions = {};
       var bsDate = calendarFunctions.getBsDateByAdDate(adYear, adMonth, adDate);
       return bsDate.bsMonth;
     },
-    bsDateFormat: function (dateFormatPattern, bsYear, bsMonth, bsDate) {
+    bsDateFormat: function (dateFormatPattern, bsYear, bsMonth, bsDate, locale='ne') {
       validationFunctions.validateRequiredParameters({
         dateFormatPattern: dateFormatPattern,
         bsYear: bsYear,
@@ -969,11 +993,29 @@ var calendarFunctions = {};
       var eqAdDate = calendarFunctions.getAdDateByBsDate(bsYear, bsMonth, bsDate);
       var weekDay = eqAdDate.getDay() + 1;
       var formattedDate = dateFormatPattern;
-      formattedDate = formattedDate.replace(/%d/g, calendarFunctions.getNepaliNumber(bsDate));
-      formattedDate = formattedDate.replace(/%y/g, calendarFunctions.getNepaliNumber(bsYear));
-      formattedDate = formattedDate.replace(/%m/g, calendarFunctions.getNepaliNumber(bsMonth));
-      formattedDate = formattedDate.replace(/%M/g, calendarData.bsMonths[bsMonth - 1]);
-      formattedDate = formattedDate.replace(/%D/g, calendarData.bsDays[weekDay - 1]);
+      if(locale == 'en'){
+        // english locale
+        formattedDate = formattedDate.replace(/%d/g, bsDate);
+        formattedDate = formattedDate.replace(/%0d/g, bsDate.toString().length == 1 ? `0${bsDate}` : bsDate );
+        formattedDate = formattedDate.replace(/%y/g, bsYear);
+        formattedDate = formattedDate.replace(/%m/g, bsMonth);
+        formattedDate = formattedDate.replace(/%0m/g, bsMonth.toString().length == 1 ? `0${bsMonth}` : bsMonth );
+        formattedDate = formattedDate.replace(/%M/g, calendarData.bsMonthsEnglish[bsMonth - 1]);
+        formattedDate = formattedDate.replace(/%D/g, calendarData.bsDaysEnglish[weekDay - 1]);
+        formattedDate = formattedDate.replace(/%l/g, calendarData.bsDaysFullEnglish[weekDay - 1]);
+      }else{
+        // nepali locale by default
+        const nepaliDate = calendarFunctions.getNepaliNumber(bsDate);
+        formattedDate = formattedDate.replace(/%d/g, nepaliDate);
+        formattedDate = formattedDate.replace(/%0d/g, bsDate.toString().length == 1 ? `०${nepaliDate}` : nepaliDate );
+        formattedDate = formattedDate.replace(/%y/g, calendarFunctions.getNepaliNumber(bsYear));
+        const nepaliMonth = calendarFunctions.getNepaliNumber(bsMonth);
+        formattedDate = formattedDate.replace(/%m/g, nepaliMonth);
+        formattedDate = formattedDate.replace(/%0m/g, bsMonth.toString().length == 1 ? `०${nepaliMonth}` : nepaliMonth );
+        formattedDate = formattedDate.replace(/%M/g, calendarData.bsMonths[bsMonth - 1]);
+        formattedDate = formattedDate.replace(/%D/g, calendarData.bsDays[weekDay - 1]);
+        formattedDate = formattedDate.replace(/%l/g, calendarData.bsDaysFull[weekDay - 1]);
+      }
       return formattedDate;
     },
     parseFormattedBsDate: function (dateFormat, dateFormattedText) {
@@ -992,26 +1034,56 @@ var calendarFunctions = {};
 
       for (var i = 0; i < dateFormat.length; i++) {
         if (dateFormat.charAt(i) === '%') {
-          var valueOf = dateFormat.substring(i, i + 2);
-          var endChar = dateFormat.charAt(i + 2);
+          var valueOf, endChar;
+          if(dateFormat.charAt(i+1) === '0'){
+            valueOf = dateFormat.substring(i, i + 3);
+            endChar = dateFormat.charAt(i + 3);
+          }else{
+            valueOf = dateFormat.substring(i, i + 2);
+            endChar = dateFormat.charAt(i + 2);
+          }
           var tempText = dateFormattedText.substring(i + diffTextNum);
           var endIndex = endChar !== '' ? tempText.indexOf(endChar) : tempText.length;
           var value = tempText.substring(0, endIndex);
-
+          
           if (valueOf === '%y') {
-            extractedFormattedBsDate.bsYear = calendarFunctions.getNumberByNepaliNumber(value);
+            extractedFormattedBsDate.bsYear = calendarFunctions.getNumberByNepaliNumber(value, true);
             diffTextNum += value.length - 2;
           } else if (valueOf === '%d') {
-            extractedFormattedBsDate.bsDate = calendarFunctions.getNumberByNepaliNumber(value);
+            extractedFormattedBsDate.bsDate = calendarFunctions.getNumberByNepaliNumber(value, true);
             diffTextNum += value.length - 2;
+          } else if (valueOf === '%0d') {
+            extractedFormattedBsDate.bsDate = calendarFunctions.getNumberByNepaliNumber(value, true);
+            diffTextNum += value.length - 3;
           } else if (valueOf === '%D') {
-            extractedFormattedBsDate.bsDay = calendarData.bsDays.indexOf(value) + 1;
+            if(calendarData.bsDays.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsDay = calendarData.bsDays.indexOf(value) + 1;
+            else if(calendarData.bsDaysEnglish.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsDay = calendarData.bsDaysEnglish.indexOf(value) + 1;
+            else
+              throw Error(`Invalid format for %D with value ${value}`);
+            diffTextNum += value.length - 2;
+          } else if (valueOf === '%l') {
+            if(calendarData.bsDaysFull.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsDay = calendarData.bsDaysFull.indexOf(value) + 1;
+            else if(calendarData.bsDaysFullEnglish.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsDay = calendarData.bsDaysFullEnglish.indexOf(value) + 1;
+            else
+              throw Error(`Invalid format for %l with value ${value}`);
             diffTextNum += value.length - 2;
           } else if (valueOf === '%m') {
-            extractedFormattedBsDate.bsMonth = calendarFunctions.getNumberByNepaliNumber(value);
+            extractedFormattedBsDate.bsMonth = calendarFunctions.getNumberByNepaliNumber(value, true);
             diffTextNum += value.length - 2;
+          } else if (valueOf === '%0m') {
+            extractedFormattedBsDate.bsMonth = calendarFunctions.getNumberByNepaliNumber(value, true);
+            diffTextNum += value.length - 3;
           } else if (valueOf === '%M') {
-            extractedFormattedBsDate.bsMonth = calendarData.bsMonths.indexOf(value) + 1;
+            if(calendarData.bsMonths.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsMonth = calendarData.bsMonths.indexOf(value) + 1;
+            else if(calendarData.bsMonthsEnglish.indexOf(value) !== -1)
+              extractedFormattedBsDate.bsMonth = calendarData.bsMonthsEnglish.indexOf(value) + 1;
+            else
+              throw Error(`Invalid format for %M with value ${value}`);
             diffTextNum += value.length - 2;
           }
         }
@@ -1035,6 +1107,7 @@ var calendarFunctions = {};
       options: $.extend(
         {
           dateFormat: '%D, %M %d, %y',
+          locale: 'ne',
           closeOnDateSelect: true,
           defaultDate: '',
           minDate: null,
@@ -1165,7 +1238,7 @@ var calendarFunctions = {};
           var bsMonth = datePickerData.bsMonth;
           var preDate = datePickerData.bsDate;
           var bsDate = $(this).data('date');
-          var dateText = calendarFunctions.bsDateFormat(datePickerPlugin.options.dateFormat, bsYear, bsMonth, bsDate);
+          var dateText = calendarFunctions.bsDateFormat(datePickerPlugin.options.dateFormat, bsYear, bsMonth, bsDate, datePickerPlugin.options.locale);
           $element.val(dateText);
           datePickerPlugin.setCalendarDate($nepaliDatePicker, bsYear, bsMonth, bsDate);
           datePickerPlugin.renderMonthCalendar($nepaliDatePicker);
@@ -1282,7 +1355,7 @@ var calendarFunctions = {};
       },
       setCalendarDate: function ($nepaliDatePicker, bsYear, bsMonth, BsDate) {
         $nepaliDatePicker.data(
-          calendarFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, BsDate, datePickerPlugin.options.dateFormat)
+          calendarFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, BsDate, datePickerPlugin.options.dateFormat, datePickerPlugin.options.locale)
         );
       },
       renderMonthCalendar: function ($nepaliDatePicker) {
