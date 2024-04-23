@@ -880,7 +880,13 @@ var calendarFunctions = {};
         var bsMonthUpperDaysIndex = i % 2;
         yearCount += bsMonthData[i];
         if (totalYears <= yearCount) {
-          if ((bsYear === 2085 && bsMonth === 5) || (bsYear === 2088 && bsMonth === 5)) {
+          if ((bsYear === 2081 && bsMonth === 2) || (bsYear === 2081 && bsMonth === 12)) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] + 1;
+          }
+          else if ((bsYear === 2081 && bsMonth === 3) || (bsYear === 2081 && bsMonth === 11)) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] - 1;
+          }
+          else if ((bsYear === 2085 && bsMonth === 5) || (bsYear === 2088 && bsMonth === 5)) {
             return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] - 2;
           } else {
             return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex];
