@@ -805,7 +805,14 @@ var calendarFunctions = {};
         daysNumFromMinBsYear += bsDate - 2;
       } else if (bsYear === 2085 && bsMonth > 5) {
         daysNumFromMinBsYear += bsDate - 2;
-      } else if (bsYear > 2088) {
+      } 
+      else if (bsYear === 2081 && bsMonth === 3) {
+        daysNumFromMinBsYear += bsDate + 1;
+      }
+      else if (bsYear === 2081 && bsMonth === 12) {
+        daysNumFromMinBsYear += bsDate - 1;
+      }
+      else if (bsYear > 2088) {
         daysNumFromMinBsYear += bsDate - 4;
       } else if (bsYear === 2088 && bsMonth > 5) {
         daysNumFromMinBsYear += bsDate - 4;
@@ -882,7 +889,20 @@ var calendarFunctions = {};
         if (totalYears <= yearCount) {
           if ((bsYear === 2085 && bsMonth === 5) || (bsYear === 2088 && bsMonth === 5)) {
             return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] - 2;
-          } else {
+          } 
+          else if (bsYear === 2081 && bsMonth === 2) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex + 1];
+          }
+          else if (bsYear === 2081 && bsMonth === 3) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex - 1];
+          }
+          else if (bsYear === 2081 && bsMonth === 11) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] - 1;
+          }
+          else if (bsYear === 2081 && bsMonth === 12) {
+            return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex] + 1;
+          }
+          else {
             return calendarData.bsMonthUpperDays[bsMonth - 1][bsMonthUpperDaysIndex];
           }
         }
