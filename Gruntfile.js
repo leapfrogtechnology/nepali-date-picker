@@ -19,7 +19,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['jshint']);
   grunt.registerTask('build', ['default', 'uglify', 'cssmin']);
-  grunt.registerTask('update', ['auto_install']);
   grunt.registerTask('test', ['jshint', 'jasmine']);
 
   return grunt;

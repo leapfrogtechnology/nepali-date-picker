@@ -14,8 +14,7 @@
   "scripts": {
     "prettify": "prettier --write .",
     "test": "grunt test",
-    "build": "grunt build",
-    "update": "grunt update"
+    "build": "grunt build"
   },
   "keywords": [
     "nepal",
@@ -36,7 +35,6 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-auto-install": "~0.2.4",
     "grunt-available-tasks": "^0.6.2",
     "grunt-cli": "^1.2.0",
     "grunt-concurrent": "^2.3.0",
