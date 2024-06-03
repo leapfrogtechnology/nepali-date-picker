@@ -152,10 +152,9 @@ describe('Test: calendarFunctions.getBsMonthInfoByBsDate(bsYear, bsMonth, bsDate
       bsMonthFirstAdDate: new Date(2034, 2, 15),
       bsMonthDays: 30
     });
-
   });
 
-  it('Should return correct date for edge cases of 2081 BS', function() {
+  it('Should return correct date for edge cases of 2081 BS', function () {
     expect(calendarFunctions.getBsMonthInfoByBsDate(2081, 2, 32, '%D, %M %d, %y')).toEqual({
       bsYear: 2081,
       bsMonth: 2,
