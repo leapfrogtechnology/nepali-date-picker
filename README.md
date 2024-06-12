@@ -25,16 +25,10 @@ Include `jQuery`, `nepaliDatePicker.min.js` and `nepaliDatePicker.min.css` in yo
 
 ```html
 <!-- this should go after your </body> -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-<script
-  src="https://unpkg.com/nepali-date-picker@2.0.2/dist/jquery.nepaliDatePicker.min.js"
-  crossorigin="anonymous"
-></script>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/nepali-date-picker@2.0.2/dist/nepaliDatePicker.min.css"
-  crossorigin="anonymous"
-/>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/nepali-date-picker@2.0.2/dist/nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.2/dist/nepaliDatePicker.min.css
+crossorigin="anonymous" />
 ```
 
 ### Add Input Element
