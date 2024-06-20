@@ -813,6 +813,8 @@ var calendarFunctions = {};
         daysNumFromMinBsYear += bsDate - 4;
       } else if (bsYear === 2088 && bsMonth > 5) {
         daysNumFromMinBsYear += bsDate - 4;
+      } else if (bsYear === 2088 && bsMonth <= 5) {
+        daysNumFromMinBsYear += bsDate - 2;
       } else {
         daysNumFromMinBsYear += bsDate;
       }
