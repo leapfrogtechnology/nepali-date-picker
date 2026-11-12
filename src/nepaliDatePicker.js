@@ -1168,7 +1168,7 @@ var calendarFunctions = {};
         });
 
         $nepaliDatePicker.on('click', '.current-month-date', function () {
-          if ($(this).hasClass('disable')) {
+          if ($element.is(':disabled') || $(this).hasClass('disable')) {
             return;
           }
 
